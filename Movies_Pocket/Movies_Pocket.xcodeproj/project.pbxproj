@@ -67,8 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				B3A7C5271E67271700FCA51F /* AppDelegate.swift */,
-				B3A7C54E1E67281F00FCA51F /* Helpers */,
 				B3A7C54D1E6727E300FCA51F /* Storyboards */,
+				B3A7C54E1E67281F00FCA51F /* Helpers */,
 				B3A7C54C1E6727DB00FCA51F /* Controllers */,
 				B3A7C54B1E6727D400FCA51F /* Model */,
 				B3A7C52E1E67271700FCA51F /* Assets.xcassets */,
@@ -366,6 +366,7 @@
 				B3A7C5381E67271700FCA51F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

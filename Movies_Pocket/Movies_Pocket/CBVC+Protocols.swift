@@ -28,8 +28,6 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         
         cell.title.text = item.title
         cell.overview.text = item.overview
-        //To keep the scroll up
-        cell.overview.scrollRangeToVisible(NSRange(location: 0, length: 0))
         
         return cell
     }
@@ -56,7 +54,7 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
 class MediaCell: UICollectionViewCell{
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var overview: UITextView!
+    @IBOutlet weak var overview: UILabel!
     
     @IBAction func moreAction(_ sender: Any) {
         print("See more")

@@ -32,6 +32,7 @@ class APIHelper {
                 print("Error in dataTask: Did not recieve data")
                 return
             }
+            
             let results = convertToJSON(data: responseData)
             let items = convertToItemsArray(array: results as! [[String:AnyObject]])
             let media = items as? [Media] ?? []
@@ -157,7 +158,7 @@ class APIHelper {
         }
         else if(dictionary["media_type"] as! String == "tv"){
             item = Media(id: dictionary["id"] as? Int ?? 0,
-                            title: dictionary["title"] as? String ?? "Sin título",
+                            title: dictionary["name"] as? String ?? "Sin título",
                             poster_path: dictionary["poster_path"] as? String ?? "",
                             overview: dictionary["overview"] as? String ?? "Sin sinopsis",
                             vote_average: dictionary["vote_average"] as? Double ?? 0.0)
