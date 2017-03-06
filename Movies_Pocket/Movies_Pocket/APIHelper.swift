@@ -15,6 +15,7 @@ class APIHelper {
     static let urlImagesString = "https://image.tmdb.org/t/p/w500"
     static let urlNowPlayingString = "https://api.themoviedb.org/3/movie/now_playing?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES&page="
     static let urlSearch = "https://api.themoviedb.org/3/search/multi?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES&include_adult=false"
+    static let urlMovieDetails = "https://api.themoviedb.org/3/movie/"
     
     /*GET /SEARCH REQUEST */
     class func getSearch(page: Int, searchString: String, collectionView: UICollectionView?){
@@ -33,8 +34,8 @@ class APIHelper {
                 return
             }
             
-            let results = convertToJSON(data: responseData)
-            let items = convertToItemsArray(array: results as! [[String:AnyObject]])
+            let results = convertResultsToJSON(data: responseData)
+            let items = convertToItemsArray(array: results! as! [[String:AnyObject]])
             let media = items as? [Media] ?? []
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -63,7 +64,7 @@ class APIHelper {
                 print("Error in dataTask: Did not recieve data")
                 return
             }
-            guard let results = convertToJSON(data: responseData) else{
+            guard let results = convertResultsToJSON(data: responseData) else{
                 print("Error in dataTask: converToJSON")
                 return
             }
@@ -85,8 +86,6 @@ class APIHelper {
     /* GET IMAGE FROM URL AND ADD IT TO UIImageView */
     class func getImage(image: UIImageView, imageString: String){
         let url = urlImagesString.appending(imageString)
-        
-        //print("\(url)")
         
         let session = URLSession(configuration: .default)
         let urlRequest = URLRequest(url: URL(string: url)!)
@@ -119,8 +118,66 @@ class APIHelper {
         dataTask.resume()
      }
     
-    /* CONVERTS FROM DATA TO DICTIONARY */
-    class func  convertToJSON(data: Data) -> AnyObject?{
+    class func getDetails(media: Media, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void){
+        
+        print(media.media_type)
+        switch(media.media_type){
+        case "movie":
+            let url = urlMovieDetails.appending("\(media.id)?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES");
+        
+            let session = URLSession(configuration: .default)
+            let urlRequest = URLRequest(url: URL(string: url)!)
+            
+            let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+                guard error == nil else{
+                    print ("Error in dataTask: getNowPlaying: \(error)")
+                    onError()
+                    return
+                }
+                guard let responseData = data else{
+                    print("Error in dataTask: Did not recieve data")
+                    onError()
+                    return
+                }
+                guard let results = convertToJSON(data: responseData) else{
+                    print("Error in dataTask: converToJSON")
+                    onError()
+                    return
+                }
+                media.details = results
+                
+                DispatchQueue.main.async {
+                    onCompletion()
+                    //print("Data retrieved")
+                }
+            }
+            dataTask.resume()
+            break;
+        default:
+            break;
+        }
+        
+    }
+    
+    /* CONVERTS FROM DATA TO DICTIONARY*/
+    class func convertToJSON(data:Data) -> [String:AnyObject]?{
+        let result:[String:AnyObject]?
+        do{
+            guard let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
+                print("Error in dataTask: Couldn't to convert data to JSON")
+                return nil
+            }
+            result = jsonData
+        }
+        catch{
+            print("Error in dataTask: Exception (Data to JSON)")
+            return nil
+        }
+        return result
+    }
+    
+    /* CONVERTS FROM DATA TO DICTIONARY AND GET THE ITEM WITH KEY=RESULT*/
+    class func  convertResultsToJSON(data: Data) -> AnyObject?{
         let results: AnyObject?
         do {
             guard let jsonData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
@@ -129,7 +186,7 @@ class APIHelper {
             }
             results =  jsonData["results"]
         } catch  {
-            print("Errorin dataTask: Exception (Data to JSON)")
+            print("Error in dataTask: Exception (Data to JSON)")
             return nil
         }
         return results
@@ -140,29 +197,35 @@ class APIHelper {
     class  func convertToItem(dictionary: [String:AnyObject]) -> Any?{
         
         var item : Any?
-        
         // NOW PLAYING MOVIES REQUEST RETURNS NO "media_type"
         if dictionary["media_type"] == nil{
             item = Media(id: dictionary["id"] as? Int ?? 0,
                          title: dictionary["title"] as? String ?? "Sin título",
                          poster_path: dictionary["poster_path"] as? String ?? "",
                          overview: dictionary["overview"] as? String ?? "Sin sinopsis",
-                         vote_average: dictionary["vote_average"] as? Double ?? 0.0)
+                         vote_average: dictionary["vote_average"] as? Double ?? 0.0,
+                         media_type: dictionary["media_type"] as? String ?? "movie",
+                         details: [:])
         }
         else if(dictionary["media_type"] as! String == "movie"){
             item = Media(id: dictionary["id"] as? Int ?? 0,
                         title: dictionary["title"] as? String ?? "Sin título",
                         poster_path: dictionary["poster_path"] as? String ?? "",
                         overview: dictionary["overview"] as? String ?? "Sin sinopsis",
-                        vote_average: dictionary["vote_average"] as? Double ?? 0.0)
+                        vote_average: dictionary["vote_average"] as? Double ?? 0.0,
+                        media_type: dictionary["media_type"] as? String ?? "No type",
+                        details: [:])
         }
         else if(dictionary["media_type"] as! String == "tv"){
             item = Media(id: dictionary["id"] as? Int ?? 0,
                             title: dictionary["name"] as? String ?? "Sin título",
                             poster_path: dictionary["poster_path"] as? String ?? "",
                             overview: dictionary["overview"] as? String ?? "Sin sinopsis",
-                            vote_average: dictionary["vote_average"] as? Double ?? 0.0)
+                            vote_average: dictionary["vote_average"] as? Double ?? 0.0,
+                            media_type: dictionary["media_type"] as? String ?? "No type",
+                            details: [:])
         }
+        
         //ELSE PERSON NOT IMPLEMENTED
         
         return item

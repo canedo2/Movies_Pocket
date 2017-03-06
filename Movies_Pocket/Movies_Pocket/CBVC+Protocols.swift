@@ -49,15 +49,55 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         }
         return size
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "DetailSegue"){
+            print("Performing segue")
+            segue.perform()
+        }
+    }
 }
 
 class MediaCell: UICollectionViewCell{
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var overview: UILabel!
-    
-    @IBAction func moreAction(_ sender: Any) {
-        print("See more")
+
+    @IBAction func showDetails(_ sender: UIButton) {
+        let cv = self.superview as! UICollectionView
+        let indexPath = cv.indexPath(for: self)
+        
+        let collectionViewController = cv.delegate as! CollectionBaseViewController
+        
+        let media = collectionViewController.appDelegate!.model.foundItems[indexPath!.row]
+        collectionViewController.appDelegate!.model.selectedMedia = media
+        
+        //print("Saber más de : \(media.title)")
+        
+        let loadingView = UIView(frame: UIScreen.main.bounds)
+        loadingView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.center = loadingView.center
+        loadingView.addSubview(activityIndicator)
+        
+        collectionViewController.view.addSubview(loadingView)
+        activityIndicator.startAnimating()
+        
+        
+        APIHelper.getDetails(media: media,
+                             onCompletion: {
+                                    activityIndicator.stopAnimating()
+                                    loadingView.removeFromSuperview()
+                            },
+                             onError: {
+                                    activityIndicator.stopAnimating()
+                                    loadingView.removeFromSuperview()
+        })
+        
+        let controller = UIApplication.shared.keyWindow?.rootViewController;
+        controller?.performSegue(withIdentifier: "DetailSegue", sender: controller)
+        
     }
+    
     
 }

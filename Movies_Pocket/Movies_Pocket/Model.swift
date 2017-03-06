@@ -9,4 +9,5 @@
 import Foundation
 struct Model {
     var foundItems = [Media]()
+    var selectedMedia: Media?
 }
