@@ -48,5 +48,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         searchString = searchString.replacingOccurrences(of: " ", with: "+")
         APIHelper.getSearch(page: 1, searchString: searchString, collectionView: collectionView)
     }
+    
+    
 
 }

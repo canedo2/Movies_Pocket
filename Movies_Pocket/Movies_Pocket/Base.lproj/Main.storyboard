@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +35,7 @@
                                         </connections>
                                     </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dmx-pZ-BjC">
-                                        <rect key="frame" x="0.0" y="52" width="414" height="664"/>
+                                        <rect key="frame" x="0.0" y="44" width="414" height="672"/>
                                         <color key="backgroundColor" red="0.42697097081218272" green="0.42697097081218272" blue="0.42697097081218272" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dg4-3g-ev6">
                                             <size key="itemSize" width="330" height="182"/>
@@ -51,10 +52,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-Od-RrR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="182"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="182"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="3aR-Od-RrR" secondAttribute="height" multiplier="10:15" id="93X-9a-Nmr"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwl-Pg-XIq">
-                                                            <rect key="frame" x="129.66666666666663" y="8" width="192.33333333333337" height="21"/>
+                                                            <rect key="frame" x="129.33333333333337" y="8" width="192.66666666666663" height="21"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -69,7 +73,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxh-Bh-jaW">
-                                                            <rect key="frame" x="129.66666666666663" y="33" width="196.33333333333337" height="113"/>
+                                                            <rect key="frame" x="129.33333333333337" y="33" width="196.66666666666663" height="113"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -80,7 +84,6 @@
                                                 <constraints>
                                                     <constraint firstItem="jxh-Bh-jaW" firstAttribute="top" secondItem="rwl-Pg-XIq" secondAttribute="bottom" constant="4" id="0Qp-ku-M6n"/>
                                                     <constraint firstItem="3aR-Od-RrR" firstAttribute="leading" secondItem="Bw4-73-N0a" secondAttribute="leading" id="DnH-DO-4PX"/>
-                                                    <constraint firstItem="3aR-Od-RrR" firstAttribute="width" secondItem="Bw4-73-N0a" secondAttribute="width" multiplier="7/19" id="EqP-A9-pnz"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="rwl-Pg-XIq" secondAttribute="trailing" id="Ja6-qv-L0h"/>
                                                     <constraint firstAttribute="bottom" secondItem="3aR-Od-RrR" secondAttribute="bottom" id="Psc-A6-KJd"/>
                                                     <constraint firstItem="rwl-Pg-XIq" firstAttribute="leading" secondItem="3aR-Od-RrR" secondAttribute="trailing" constant="8" id="TAa-yS-gcl"/>
@@ -109,7 +112,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="QiZ-gw-GNU" secondAttribute="trailing" id="24d-Oq-wxF"/>
-                                    <constraint firstItem="dmx-pZ-BjC" firstAttribute="top" secondItem="QiZ-gw-GNU" secondAttribute="bottom" constant="8" id="O8N-S9-md6"/>
+                                    <constraint firstItem="dmx-pZ-BjC" firstAttribute="top" secondItem="QiZ-gw-GNU" secondAttribute="bottom" id="O8N-S9-md6"/>
                                     <constraint firstItem="QiZ-gw-GNU" firstAttribute="leading" secondItem="zTT-xP-bQB" secondAttribute="leading" id="Op1-SD-iNx"/>
                                     <constraint firstItem="dmx-pZ-BjC" firstAttribute="leading" secondItem="zTT-xP-bQB" secondAttribute="leading" id="TcN-HM-pr1"/>
                                     <constraint firstItem="QiZ-gw-GNU" firstAttribute="top" secondItem="zTT-xP-bQB" secondAttribute="top" id="cpn-IF-UkT"/>
@@ -129,12 +132,12 @@
                     <connections>
                         <outlet property="collectionView" destination="dmx-pZ-BjC" id="Qzg-Ra-Y2f"/>
                         <outlet property="searchBar" destination="QiZ-gw-GNU" id="lKw-NU-bfI"/>
-                        <segue destination="P5c-wp-ygz" kind="showDetail" identifier="DetailSegue" action="showViewController:sender:" id="f6T-z8-Wc4"/>
+                        <segue destination="P5c-wp-ygz" kind="show" identifier="DetailSegue" id="f6T-z8-Wc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="-50"/>
+            <point key="canvasLocation" x="-117.39130434782609" y="-50.54347826086957"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="xd3-mR-Cz2">
@@ -180,7 +183,7 @@
                                             <color key="titleColor" red="0.99607473611831665" green="0.99220293760299683" blue="0.99199241399765015" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="2Uq-UM-qJ9"/>
+                                            <action selector="backAction:" destination="P5c-wp-ygz" eventType="touchUpInside" id="sho-7e-ocV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -205,7 +208,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="421.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOx-zm-pUw">
-                                                <rect key="frame" x="1" y="1" width="414" height="204.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="204.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopsis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fb-eA-tAp" userLabel="Sinopsis">
                                                         <rect key="frame" x="8" y="8" width="398" height="21.666666666666686"/>
@@ -278,10 +281,10 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="aOx-zm-pUw" secondAttribute="trailing" constant="1" id="9x8-63-TB2"/>
-                                            <constraint firstItem="aOx-zm-pUw" firstAttribute="top" secondItem="Q97-IZ-XaZ" secondAttribute="top" constant="1" id="hJw-lb-rk0"/>
-                                            <constraint firstItem="aOx-zm-pUw" firstAttribute="leading" secondItem="Q97-IZ-XaZ" secondAttribute="leading" constant="1" id="tWe-Cw-DiY"/>
-                                            <constraint firstAttribute="bottom" secondItem="aOx-zm-pUw" secondAttribute="bottom" constant="1" id="tee-9b-8HQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="aOx-zm-pUw" secondAttribute="trailing" id="9x8-63-TB2"/>
+                                            <constraint firstItem="aOx-zm-pUw" firstAttribute="top" secondItem="Q97-IZ-XaZ" secondAttribute="top" id="hJw-lb-rk0"/>
+                                            <constraint firstItem="aOx-zm-pUw" firstAttribute="leading" secondItem="Q97-IZ-XaZ" secondAttribute="leading" id="tWe-Cw-DiY"/>
+                                            <constraint firstAttribute="bottom" secondItem="aOx-zm-pUw" secondAttribute="bottom" id="tee-9b-8HQ"/>
                                             <constraint firstItem="aOx-zm-pUw" firstAttribute="width" secondItem="Q97-IZ-XaZ" secondAttribute="width" id="wFW-ct-yLM"/>
                                         </constraints>
                                     </scrollView>
@@ -319,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jP1-d2-tlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645" y="-416"/>
+            <point key="canvasLocation" x="951" y="-302"/>
         </scene>
     </scenes>
     <resources>

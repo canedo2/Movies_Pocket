@@ -18,6 +18,7 @@
 		B3A7C5471E67276F00FCA51F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C53F1E67276F00FCA51F /* Model.swift */; };
 		B3A7C5481E67276F00FCA51F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5401E67276F00FCA51F /* SearchViewController.swift */; };
 		B3A7C5521E67290600FCA51F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5511E67290600FCA51F /* BaseViewController.swift */; };
+		B3BF65521E6F2927008B06CC /* InterfaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */; };
 		B3E8C95D1E6DBA8B00DCC31D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		B3A7C53F1E67276F00FCA51F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B3A7C5401E67276F00FCA51F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B3A7C5511E67290600FCA51F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceHelper.swift; sourceTree = "<group>"; };
 		B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B3A7C5391E67276F00FCA51F /* APIHelper.swift */,
+				B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				B3A7C5521E67290600FCA51F /* BaseViewController.swift in Sources */,
 				B3A7C5281E67271700FCA51F /* AppDelegate.swift in Sources */,
 				B3A7C5471E67276F00FCA51F /* Model.swift in Sources */,
+				B3BF65521E6F2927008B06CC /* InterfaceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

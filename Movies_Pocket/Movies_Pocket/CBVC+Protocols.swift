@@ -72,13 +72,11 @@ class MediaCell: UICollectionViewCell{
         let media = collectionViewController.appDelegate!.model.foundItems[indexPath!.row]
         collectionViewController.appDelegate!.model.selectedMedia = media
         
-        //print("Saber más de : \(media.title)")
+        print("Saber más de : \(media.title)")
         
-        let loadingView = UIView(frame: UIScreen.main.bounds)
-        loadingView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        activityIndicator.center = loadingView.center
-        loadingView.addSubview(activityIndicator)
+        let loadingView: UIView
+        let activityIndicator: UIActivityIndicatorView
+        (loadingView,activityIndicator) = InterfaceHelper.createLoadingView()
         
         collectionViewController.view.addSubview(loadingView)
         activityIndicator.startAnimating()
@@ -88,15 +86,17 @@ class MediaCell: UICollectionViewCell{
                              onCompletion: {
                                     activityIndicator.stopAnimating()
                                     loadingView.removeFromSuperview()
+                                    let controller = UIApplication.shared.keyWindow?.rootViewController;
+                                    controller?.performSegue(withIdentifier: "DetailSegue", sender: controller)
                             },
                              onError: {
                                     activityIndicator.stopAnimating()
                                     loadingView.removeFromSuperview()
+                                    //Show error
+                                    let alert = InterfaceHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
+                                    collectionViewController.present(alert, animated: true, completion: nil)
+                                
         })
-        
-        let controller = UIApplication.shared.keyWindow?.rootViewController;
-        controller?.performSegue(withIdentifier: "DetailSegue", sender: controller)
-        
     }
     
     

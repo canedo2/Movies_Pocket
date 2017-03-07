@@ -16,6 +16,7 @@ class APIHelper {
     static let urlNowPlayingString = "https://api.themoviedb.org/3/movie/now_playing?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES&page="
     static let urlSearch = "https://api.themoviedb.org/3/search/multi?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES&include_adult=false"
     static let urlMovieDetails = "https://api.themoviedb.org/3/movie/"
+    static let urlTVSeriesDetails = "https://api.themoviedb.org/3/tv/"
     
     /*GET /SEARCH REQUEST */
     class func getSearch(page: Int, searchString: String, collectionView: UICollectionView?){
@@ -41,7 +42,6 @@ class APIHelper {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.model.foundItems = media
                 collectionView?.reloadData()
-                print("Data retrieved")
             }
         }
         dataTask.resume()
@@ -76,7 +76,6 @@ class APIHelper {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.model.foundItems.append(contentsOf: media)
                 cv?.reloadData()
-                print("Data retrieved")
             }
         }
         dataTask.resume()
@@ -111,7 +110,6 @@ class APIHelper {
             }
             
             DispatchQueue.main.async {
-                //print("Image printed")
                 image.image = imageToShow
             }
         }
@@ -120,42 +118,53 @@ class APIHelper {
     
     class func getDetails(media: Media, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void){
         
-        print(media.media_type)
+        let url: String;
+        
         switch(media.media_type){
         case "movie":
-            let url = urlMovieDetails.appending("\(media.id)?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES");
-        
-            let session = URLSession(configuration: .default)
-            let urlRequest = URLRequest(url: URL(string: url)!)
-            
-            let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
-                guard error == nil else{
-                    print ("Error in dataTask: getNowPlaying: \(error)")
-                    onError()
-                    return
-                }
-                guard let responseData = data else{
-                    print("Error in dataTask: Did not recieve data")
-                    onError()
-                    return
-                }
-                guard let results = convertToJSON(data: responseData) else{
-                    print("Error in dataTask: converToJSON")
-                    onError()
-                    return
-                }
-                media.details = results
-                
-                DispatchQueue.main.async {
-                    onCompletion()
-                    //print("Data retrieved")
-                }
-            }
-            dataTask.resume()
+            url = urlMovieDetails.appending("\(media.id)?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES");
+            break;
+        case "tv":
+            url = urlTVSeriesDetails.appending("\(media.id)?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES");
             break;
         default:
+            url = "error"
             break;
         }
+        
+        print(url)
+        let session = URLSession(configuration: .default)
+        let urlRequest = URLRequest(url: URL(string: url)!)
+        
+        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else{
+                print ("Error in dataTask: getNowPlaying: \(error)")
+                DispatchQueue.main.async {
+                    onError()
+                }
+                return
+            }
+            guard let responseData = data else{
+                print("Error in dataTask: Did not recieve data")
+                DispatchQueue.main.async {
+                    onError()
+                }
+                return
+            }
+            guard let results = convertToJSON(data: responseData) else{
+                print("Error in dataTask: converToJSON")
+                DispatchQueue.main.async {
+                    onError()
+                }
+                return
+            }
+            media.details = results
+            
+            DispatchQueue.main.async {
+                onCompletion()
+            }
+        }
+        dataTask.resume()
         
     }
     
