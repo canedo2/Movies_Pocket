@@ -18,6 +18,7 @@ class DetailsViewController: BaseViewController {
     @IBOutlet weak var genresView: UILabel!
     @IBOutlet weak var companiesView: UILabel!
     @IBOutlet weak var voteAverageView: UILabel!
+    @IBOutlet weak var moreInfo: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,20 @@ class DetailsViewController: BaseViewController {
         titleView.text = media?.title
         voteAverageView.text = "\(media!.vote_average) / 10"
         
-        let duration = media?.details["runtime"] as? Int ?? 0
-        runtimeView.text = "\(duration)min"
+        if (media?.media_type == "movie"){
+            let duration = media?.details["runtime"] as? Int ?? 0
+            runtimeView.text = "\(duration)min"
+        }
+        else{
+            let duration = media?.details["episode_run_time"] as? [Int] ?? [0]
+            var total = 0
+            for value in duration {
+                total += value
+            }
+            
+            let count = total / duration.count
+            runtimeView.text = "\(count)min/capítulo (\(media?.details["number_of_episodes"] as! Int))"
+        }
         
         overviewView.text = media?.overview
         
@@ -48,14 +61,36 @@ class DetailsViewController: BaseViewController {
         let companies = media!.details["production_companies"]
         
         companiesView.text = ""
-        
+        var count = companies!.count - 1
         for company in (companies as? NSArray ?? []){
             let companyItem = company as! [String:Any]
             let companyName = companyItem["name"] as! String
             
             companiesView.text?.append(companyName)
-            companiesView.text?.append("\n")
             
+            count-=count;
+            if (count != 0){
+                companiesView.text?.append("\n")
+            }
+            
+        }
+        
+        moreInfo.text = ""
+        if(media?.media_type == "movie"){
+            if let date = media?.details["release_date"] as? String {
+                moreInfo.text?.append("Fecha de lanzamiento: \(date)")
+            }
+        }
+        else{
+            if let date = media?.details["first_air_date"] as? String {
+                moreInfo.text?.append("Fecha del primer episodio: \(date)")
+            }
+            if let lastDate = media?.details["last_air_date"] as? String {
+                moreInfo.text?.append("\nFecha del último episodio: \(lastDate)")
+            }
+            if let seasonsNumber = media?.details["number_of_seasons"] as? Int {
+                moreInfo.text?.append("\nNúmero de temporadas: \(seasonsNumber)")
+            }
         }
     }
     

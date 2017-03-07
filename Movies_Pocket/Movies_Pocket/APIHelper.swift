@@ -132,7 +132,6 @@ class APIHelper {
             break;
         }
         
-        print(url)
         let session = URLSession(configuration: .default)
         let urlRequest = URLRequest(url: URL(string: url)!)
         

@@ -52,7 +52,7 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "DetailSegue"){
-            print("Performing segue")
+            //print("Performing segue")
             segue.perform()
         }
     }
@@ -71,8 +71,6 @@ class MediaCell: UICollectionViewCell{
         
         let media = collectionViewController.appDelegate!.model.foundItems[indexPath!.row]
         collectionViewController.appDelegate!.model.selectedMedia = media
-        
-        print("Saber más de : \(media.title)")
         
         let loadingView: UIView
         let activityIndicator: UIActivityIndicatorView
