@@ -13,6 +13,8 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var showingNowPlaying = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,18 +29,8 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new viLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.ew controller.
-    }
-    */
-    
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         guard var searchString = searchBar.text else{
             return
         }
@@ -49,6 +41,36 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         APIHelper.getSearch(page: 1, searchString: searchString, collectionView: collectionView)
     }
     
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        showingNowPlaying = false
+        if searchText == "" {
+            showingNowPlaying = true
+            appDelegate?.model.foundItems = []
+            APIHelper.getNowPlaying(page: 1, reloadingCollectionView: collectionView)
+        }
+    }
     
-
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
+        
+        //Get more pages if showing news
+        if(indexPath.row == appDelegate!.model.foundItems.count-1 && showingNowPlaying){
+            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, reloadingCollectionView: collectionView)
+        }
+        
+        return cell
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("Layout")
+        collectionView.reloadData()
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("Transition")
+        //collectionView.reloadData()
+    }
+    
 }

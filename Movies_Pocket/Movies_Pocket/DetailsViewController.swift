@@ -26,7 +26,7 @@ class DetailsViewController: BaseViewController {
         // Do any additional setup after loading the view.
         self.media = appDelegate!.model.selectedMedia!
         
-        APIHelper.getImage(image: imageView, imageString: media!.poster_path)
+        APIHelper.getImage(image: imageView, imageString: media!.poster_path, onCompletion:{}, onError: {})
         titleView.text = media?.title
         voteAverageView.text = "\(media!.vote_average) / 10"
         

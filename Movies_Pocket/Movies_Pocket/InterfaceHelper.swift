@@ -31,6 +31,16 @@ class InterfaceHelper {
     
     }
     
+    class func createImageLoadingView(image: UIImageView) -> (UIView,UIActivityIndicatorView){
+        
+        let loadingView = UIView(frame: image.bounds)
+        loadingView.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.5)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.center = loadingView.center
+        loadingView.addSubview(activityIndicator)
+        
+        return(loadingView,activityIndicator)
+    }
     
     
 }

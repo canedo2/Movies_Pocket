@@ -83,7 +83,7 @@ class APIHelper {
     }
     
     /* GET IMAGE FROM URL AND ADD IT TO UIImageView */
-    class func getImage(image: UIImageView, imageString: String){
+    class func getImage(image: UIImageView, imageString: String, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void){
         let url = urlImagesString.appending(imageString)
         
         let session = URLSession(configuration: .default)
@@ -91,26 +91,36 @@ class APIHelper {
         
         let dataTask = session.dataTask(with: urlRequest) { (data, responseData, error) in
             guard error == nil else {
-                print("\(error) -> Error in dataTask: Popular movies")
+                print("\(error) -> Error in dataTask: Couldn't generate the UIImage")
+                DispatchQueue.main.async {
+                    image.image = UIImage(named: "no-image")
+                    onError()
+                }
                 return
             }
             
             // make sure we got data
             guard let responseData = data else {
                 print("Error: did not receive data")
+                DispatchQueue.main.async {
+                    image.image = UIImage(named: "no-image")
+                    onError()
+                }
                 return
             }
             
             guard let imageToShow = UIImage.init(data: responseData) else{
-                print("Error: Couldn't generate the UIIMage")
+                print("Error: Couldn't generate the UIImage")
                 DispatchQueue.main.async {
-                    image.image = UIImage(named: "1")
+                    image.image = UIImage(named: "no-image")
+                    onError()
                 }
                 return
             }
             
             DispatchQueue.main.async {
                 image.image = imageToShow
+                onCompletion()
             }
         }
         dataTask.resume()

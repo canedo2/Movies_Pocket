@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return  appDelegate!.model.foundItems.count
     }
@@ -18,17 +17,40 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! MediaCell
+        cell.image.image = UIImage() //nil
         
         cell.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
         
         let item = appDelegate!.model.foundItems[indexPath.row]
         
+        
+        let loadingView: UIView
+        let activityIndicator: UIActivityIndicatorView
+        
+        (loadingView,activityIndicator) = InterfaceHelper.createImageLoadingView(image: cell.image)
+        
+        activityIndicator.startAnimating()
+        cell.image.addSubview(loadingView)
+        
         APIHelper.getImage(image: cell.image,
-                           imageString: item.poster_path)
+                           imageString: item.poster_path,
+                           onCompletion:{
+                            activityIndicator.stopAnimating()
+                            loadingView.removeFromSuperview()
+        },
+                           onError:{
+                            activityIndicator.stopAnimating()
+                            loadingView.removeFromSuperview()
+        
+        })
         
         cell.title.text = item.title
-        cell.overview.text = item.overview
-        
+        if item.overview == "" {
+            cell.overview.text = "No hay sinopsis disponible"
+        }
+        else{
+            cell.overview.text = item.overview
+        }
         return cell
     }
     
@@ -39,14 +61,33 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         
         var size: CGSize
         if(collectionView.frame.height > collectionView.frame.width){
-            size = CGSize(width: cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left),
-                          height: cv.frame.height/3)
+            
+            //IPAD PORTRAIT CONF
+            if(UIDevice.current.userInterfaceIdiom == .pad){
+                size = CGSize(width: (cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left)*2)/2,
+                              height: cv.frame.height/4)
+            }
+            //IPHONE PORTRAIT CONF
+            else{
+                size = CGSize(width: cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left),
+                              height: cv.frame.height/3)
+            }
+            
         }
-            //LANDSCAPE
+            
         else{
-            size = CGSize(width:cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left) ,
-                          height: cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom))
+            //IPAD LANDSCAPE CONF
+            if(UIDevice.current.userInterfaceIdiom == .pad){
+                size = CGSize(width:(cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left)*2)/3 ,
+                          height: (cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom)*4)/4)
+            }
+                //IPHONE LANDSCAPE CONF
+            else{
+                size = CGSize(width:cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left) ,
+                              height: cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom))
+            }
         }
+        
         return size
     }
     
