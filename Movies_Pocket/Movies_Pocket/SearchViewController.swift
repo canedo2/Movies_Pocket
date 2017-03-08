@@ -12,6 +12,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var backgroundView: UIView!
     
     var showingNowPlaying = true
     
@@ -64,13 +65,8 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print("Layout")
-        collectionView.reloadData()
-    }
-    
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("Transition")
-        //collectionView.reloadData()
-    }
+        backgroundView.layoutIfNeeded()
+        collectionView.collectionViewLayout.invalidateLayout()
+     }
     
 }

@@ -64,7 +64,7 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
             
             //IPAD PORTRAIT CONF
             if(UIDevice.current.userInterfaceIdiom == .pad){
-                size = CGSize(width: (cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left)*2)/2,
+                size = CGSize(width: (cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left*2))/2,
                               height: cv.frame.height/4)
             }
             //IPHONE PORTRAIT CONF
