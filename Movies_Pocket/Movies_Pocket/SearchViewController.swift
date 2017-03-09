@@ -19,7 +19,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIHelper.getNowPlaying(page: 1, reloadingCollectionView: collectionView)
+        APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView)
         
         // Do any additional setup after loading the view.
         
@@ -47,7 +47,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         if searchText == "" {
             showingNowPlaying = true
             appDelegate?.model.foundItems = []
-            APIHelper.getNowPlaying(page: 1, reloadingCollectionView: collectionView)
+            APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView)
         }
     }
     
@@ -57,7 +57,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         
         //Get more pages if showing news
         if(indexPath.row == appDelegate!.model.foundItems.count-1 && showingNowPlaying){
-            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, reloadingCollectionView: collectionView)
+            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView)
         }
         
         return cell

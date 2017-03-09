@@ -45,7 +45,12 @@ class DetailsViewController: BaseViewController {
             runtimeView.text = "\(count)min/capítulo (\(media?.details["number_of_episodes"] as! Int))"
         }
         
-        overviewView.text = media?.overview
+        if media?.overview == "" {
+            overviewView.text = "No hay sinopsis disponible"
+        }
+        else{
+            overviewView.text = media?.overview
+        }
         
         let genres = media?.details["genres"]
         

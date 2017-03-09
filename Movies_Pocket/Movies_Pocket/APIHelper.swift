@@ -48,7 +48,7 @@ class APIHelper {
     }
     
     /*GET /MOVIE/NOW_PLAYING REQUEST */
-    class func getNowPlaying(page: Int,reloadingCollectionView cv: UICollectionView?){
+    class func getNowPlaying(page: Int,updatingCollectionView cv: UICollectionView?){
         let url = urlNowPlayingString.appending("\(page)");
         
         let session = URLSession(configuration: .default)
@@ -74,8 +74,14 @@ class APIHelper {
             
             DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let numberOfItems = appDelegate.model.foundItems.count
                 appDelegate.model.foundItems.append(contentsOf: media)
-                cv?.reloadData()
+                var indexPaths:[IndexPath] = []
+                for index in numberOfItems..<appDelegate.model.foundItems.count{
+                    indexPaths.append(IndexPath(row: index, section: 0))
+                }
+                
+                cv?.insertItems(at:indexPaths)
             }
         }
         dataTask.resume()
