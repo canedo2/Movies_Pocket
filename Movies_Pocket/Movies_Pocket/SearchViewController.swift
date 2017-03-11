@@ -13,14 +13,15 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backgroundView: UIView!
+    let gradient = CAGradientLayer()
     
     var showingNowPlaying = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView)
-        
+        gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
+        backgroundView.layer.insertSublayer(gradient, at: 0)
         // Do any additional setup after loading the view.
         
     }
@@ -42,14 +43,6 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         APIHelper.getSearch(page: 1, searchString: searchString, collectionView: collectionView)
     }
     
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        showingNowPlaying = false
-        if searchText == "" {
-            showingNowPlaying = true
-            appDelegate?.model.foundItems = []
-            APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView)
-        }
-    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -63,8 +56,16 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         return cell
     }
     
+    /*func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //Get more pages if showing news
+        APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView)
+    }*/
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        gradient.frame = view.bounds
+        
         backgroundView.layoutIfNeeded()
         collectionView.collectionViewLayout.invalidateLayout()
      }

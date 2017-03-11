@@ -17,18 +17,28 @@ class DetailsViewController: BaseViewController {
     @IBOutlet weak var overviewView: UILabel!
     @IBOutlet weak var genresView: UILabel!
     @IBOutlet weak var companiesView: UILabel!
-    @IBOutlet weak var voteAverageView: UILabel!
     @IBOutlet weak var moreInfo: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var favoriteButton: FavoriteButton!
+    @IBOutlet weak var ratingView: MBCircularProgressBarView!
+    
+    let gradient = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
+        backgroundView.layer.insertSublayer(gradient, at: 0)
+        
         self.media = appDelegate!.model.selectedMedia!
+        
+        self.ratingView.value = 0.0
         
         APIHelper.getImage(image: imageView, imageString: media!.poster_path, onCompletion:{}, onError: {})
         titleView.text = media?.title
-        voteAverageView.text = "\(media!.vote_average) / 10"
         
         if (media?.media_type == "movie"){
             let duration = media?.details["runtime"] as? Int ?? 0
@@ -107,5 +117,26 @@ class DetailsViewController: BaseViewController {
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        gradient.frame = view.bounds
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 2.0) {
+            self.ratingView.value = CGFloat(self.media!.vote_average * 10)
+        }
+    }
+    
+    @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
+        
+        if sender.favorite {
+            sender.setFavorite(state: false)
+        }
+        else{
+            sender.setFavorite(state: true)
+        }
+    }
+    
 }

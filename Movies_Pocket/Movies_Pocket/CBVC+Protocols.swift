@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate{
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return  appDelegate!.model.foundItems.count
     }
@@ -18,8 +18,6 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! MediaCell
         cell.image.image = UIImage() //nil
-        
-        cell.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
         
         let item = appDelegate!.model.foundItems[indexPath.row]
         
@@ -100,10 +98,15 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
 }
 
 class MediaCell: UICollectionViewCell{
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var overview: UILabel!
-
+    @IBOutlet weak var favoriteButton : UIButton!
+    
+    
+    
+    
     @IBAction func showDetails(_ sender: UIButton) {
         let cv = self.superview as! UICollectionView
         let indexPath = cv.indexPath(for: self)
@@ -136,7 +139,18 @@ class MediaCell: UICollectionViewCell{
                                     collectionViewController.present(alert, animated: true, completion: nil)
                                 
         })
+        
     }
     
+    @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
+
+        if sender.favorite {
+            sender.setFavorite(state: false)
+        }
+        else {
+            sender.setFavorite(state: true)
+        }
+        
+    }
     
 }
