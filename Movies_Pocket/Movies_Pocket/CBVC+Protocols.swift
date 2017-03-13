@@ -49,6 +49,15 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         else{
             cell.overview.text = item.overview
         }
+        
+        cell.favoriteButton.setFavorite(state: false)
+        for favoriteMedia in (appDelegate?.storedFavoriteMedia)!{
+            if favoriteMedia.id.toIntMax() == item.id.toIntMax() {
+                cell.favoriteButton.setFavorite(state: true)
+                print("Coincidencia: \(item.id.toIntMax()) + \(item.title)")
+                break;
+            }
+        }
         return cell
     }
     
@@ -102,10 +111,7 @@ class MediaCell: UICollectionViewCell{
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var overview: UILabel!
-    @IBOutlet weak var favoriteButton : UIButton!
-    
-    
-    
+    @IBOutlet weak var favoriteButton : FavoriteButton!
     
     @IBAction func showDetails(_ sender: UIButton) {
         let cv = self.superview as! UICollectionView
@@ -144,11 +150,20 @@ class MediaCell: UICollectionViewCell{
     
     @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
 
+        let cv = self.superview as! UICollectionView
+        let indexPath = cv.indexPath(for: self)
+        
+        let collectionViewController = cv.delegate as! CollectionBaseViewController
+        
+        let media = collectionViewController.appDelegate!.model.foundItems[indexPath!.row]
+        
         if sender.favorite {
             sender.setFavorite(state: false)
+            CoreDataHelper.removeMedia(media: media)
         }
         else {
             sender.setFavorite(state: true)
+            CoreDataHelper.saveMedia(media: media)
         }
         
     }

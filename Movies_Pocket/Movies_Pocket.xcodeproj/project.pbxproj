@@ -20,6 +20,10 @@
 		B3A7C5471E67276F00FCA51F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C53F1E67276F00FCA51F /* Model.swift */; };
 		B3A7C5481E67276F00FCA51F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5401E67276F00FCA51F /* SearchViewController.swift */; };
 		B3A7C5521E67290600FCA51F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5511E67290600FCA51F /* BaseViewController.swift */; };
+		B3ABD95C1E76FDF9005C9654 /* CDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3ABD95A1E76FDF9005C9654 /* CDModel.xcdatamodeld */; };
+		B3ABD95E1E770061005C9654 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ABD95D1E770061005C9654 /* CoreData.framework */; };
+		B3ABD9611E770348005C9654 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABD9601E770348005C9654 /* CoreDataStack.swift */; };
+		B3ABD96B1E7712D2005C9654 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABD96A1E7712D2005C9654 /* CoreDataHelper.swift */; };
 		B3BF65521E6F2927008B06CC /* InterfaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */; };
 		B3E8C95D1E6DBA8B00DCC31D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +45,10 @@
 		B3A7C53F1E67276F00FCA51F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B3A7C5401E67276F00FCA51F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B3A7C5511E67290600FCA51F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B3ABD95B1E76FDF9005C9654 /* CDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDModel.xcdatamodel; sourceTree = "<group>"; };
+		B3ABD95D1E770061005C9654 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B3ABD9601E770348005C9654 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B3ABD96A1E7712D2005C9654 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceHelper.swift; sourceTree = "<group>"; };
 		B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B6CAEFFEEC0E7E93662BE8E2 /* Pods_Movies_Pocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies_Pocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3ABD95E1E770061005C9654 /* CoreData.framework in Frameworks */,
 				27DE85F5F8001CC7FCBA9DAB /* Pods_Movies_Pocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +107,7 @@
 		B3A7C5261E67271700FCA51F /* Movies_Pocket */ = {
 			isa = PBXGroup;
 			children = (
+				B3ABD95F1E77029E005C9654 /* CoreDataClasses */,
 				B34ADC461E7479B000D02CCF /* CustomizedInterfaceElements */,
 				B3A7C5271E67271700FCA51F /* AppDelegate.swift */,
 				B3A7C54D1E6727E300FCA51F /* Storyboards */,
@@ -106,6 +116,7 @@
 				B3A7C54B1E6727D400FCA51F /* Model */,
 				B3A7C52E1E67271700FCA51F /* m.xcassets */,
 				B3A7C5331E67271700FCA51F /* Info.plist */,
+				B3ABD95A1E76FDF9005C9654 /* CDModel.xcdatamodeld */,
 			);
 			path = Movies_Pocket;
 			sourceTree = "<group>";
@@ -157,9 +168,19 @@
 			name = BaseControllers;
 			sourceTree = "<group>";
 		};
+		B3ABD95F1E77029E005C9654 /* CoreDataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				B3ABD9601E770348005C9654 /* CoreDataStack.swift */,
+				B3ABD96A1E7712D2005C9654 /* CoreDataHelper.swift */,
+			);
+			name = CoreDataClasses;
+			sourceTree = "<group>";
+		};
 		F749384E8AD5132FF8BE0B57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3ABD95D1E770061005C9654 /* CoreData.framework */,
 				B6CAEFFEEC0E7E93662BE8E2 /* Pods_Movies_Pocket.framework */,
 			);
 			name = Frameworks;
@@ -290,14 +311,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3ABD96B1E7712D2005C9654 /* CoreDataHelper.swift in Sources */,
 				B3A7C5411E67276F00FCA51F /* APIHelper.swift in Sources */,
 				B3A7C5441E67276F00FCA51F /* CollectionBaseViewController.swift in Sources */,
 				B3E8C95D1E6DBA8B00DCC31D /* DetailsViewController.swift in Sources */,
 				B3A7C5461E67276F00FCA51F /* Media.swift in Sources */,
+				B3ABD95C1E76FDF9005C9654 /* CDModel.xcdatamodeld in Sources */,
 				B3A7C5481E67276F00FCA51F /* SearchViewController.swift in Sources */,
 				B3A7C5431E67276F00FCA51F /* CBVC+Protocols.swift in Sources */,
 				B3A7C5521E67290600FCA51F /* BaseViewController.swift in Sources */,
 				B3A7C5281E67271700FCA51F /* AppDelegate.swift in Sources */,
+				B3ABD9611E770348005C9654 /* CoreDataStack.swift in Sources */,
 				B3A7C5471E67276F00FCA51F /* Model.swift in Sources */,
 				B34ADC451E7479A900D02CCF /* FavoriteButton.swift in Sources */,
 				B3BF65521E6F2927008B06CC /* InterfaceHelper.swift in Sources */,
@@ -476,6 +500,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B3ABD95A1E76FDF9005C9654 /* CDModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B3ABD95B1E76FDF9005C9654 /* CDModel.xcdatamodel */,
+			);
+			currentVersion = B3ABD95B1E76FDF9005C9654 /* CDModel.xcdatamodel */;
+			path = CDModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B3A7C51C1E67271700FCA51F /* Project object */;
 }

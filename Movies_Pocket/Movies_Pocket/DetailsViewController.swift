@@ -107,6 +107,15 @@ class DetailsViewController: BaseViewController {
                 moreInfo.text?.append("\nNúmero de temporadas: \(seasonsNumber)")
             }
         }
+        
+        favoriteButton.setFavorite(state: false)
+        for favoriteMedia in (appDelegate?.storedFavoriteMedia)!{
+            if favoriteMedia.id.toIntMax() == media?.id.toIntMax() {
+                favoriteButton.setFavorite(state: true)
+                print("Coincidencia: \(media?.id.toIntMax()) + \(media?.title)")
+                break;
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -133,9 +142,11 @@ class DetailsViewController: BaseViewController {
         
         if sender.favorite {
             sender.setFavorite(state: false)
+            CoreDataHelper.removeMedia(media: media!)
         }
         else{
             sender.setFavorite(state: true)
+            CoreDataHelper.saveMedia(media: media!)
         }
     }
     
