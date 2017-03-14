@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FTPopOverMenu_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBCircularProgressBar-MBCircularProgressBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A2CD4CD499D9834620408AA8E287CEDF</key>
+		<key>55F9D978D238D0025E93D60F63449EE3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4EC9035DEC9ACAE2EC8ADAAC0B00FFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

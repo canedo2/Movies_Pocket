@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27DE85F5F8001CC7FCBA9DAB /* Pods_Movies_Pocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CAEFFEEC0E7E93662BE8E2 /* Pods_Movies_Pocket.framework */; };
 		B34ADC451E7479A900D02CCF /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34ADC441E7479A900D02CCF /* FavoriteButton.swift */; };
+		B3950B3C1E788D8200A0340C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3950B3B1E788D8200A0340C /* AboutViewController.m */; };
 		B3A7C5281E67271700FCA51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5271E67271700FCA51F /* AppDelegate.swift */; };
 		B3A7C52D1E67271700FCA51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A7C52B1E67271700FCA51F /* Main.storyboard */; };
 		B3A7C52F1E67271700FCA51F /* m.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A7C52E1E67271700FCA51F /* m.xcassets */; };
@@ -32,6 +33,8 @@
 		87818C58FCF89E64A6196103 /* Pods-Movies_Pocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies_Pocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movies_Pocket/Pods-Movies_Pocket.release.xcconfig"; sourceTree = "<group>"; };
 		B34ADC441E7479A900D02CCF /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		B34ADC4A1E747F3200D02CCF /* Movies_Pocket-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies_Pocket-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3950B3A1E788D8200A0340C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		B3950B3B1E788D8200A0340C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		B3A7C5241E67271700FCA51F /* Movies_Pocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies_Pocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A7C5271E67271700FCA51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3A7C52C1E67271700FCA51F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +88,15 @@
 			name = CustomizedInterfaceElements;
 			sourceTree = "<group>";
 		};
+		B3950B3D1E78907B00A0340C /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B3950B3A1E788D8200A0340C /* AboutViewController.h */,
+				B3950B3B1E788D8200A0340C /* AboutViewController.m */,
+			);
+			name = AboutViewController;
+			sourceTree = "<group>";
+		};
 		B3A7C51B1E67271700FCA51F = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +145,7 @@
 		B3A7C54C1E6727DB00FCA51F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B3950B3D1E78907B00A0340C /* AboutViewController */,
 				B3A7C54F1E67286100FCA51F /* BaseControllers */,
 				B3A7C5401E67276F00FCA51F /* SearchViewController.swift */,
 				B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */,
@@ -317,6 +330,7 @@
 				B3E8C95D1E6DBA8B00DCC31D /* DetailsViewController.swift in Sources */,
 				B3A7C5461E67276F00FCA51F /* Media.swift in Sources */,
 				B3ABD95C1E76FDF9005C9654 /* CDModel.xcdatamodeld in Sources */,
+				B3950B3C1E788D8200A0340C /* AboutViewController.m in Sources */,
 				B3A7C5481E67276F00FCA51F /* SearchViewController.swift in Sources */,
 				B3A7C5431E67276F00FCA51F /* CBVC+Protocols.swift in Sources */,
 				B3A7C5521E67290600FCA51F /* BaseViewController.swift in Sources */,

@@ -33,5 +33,20 @@ class Media {
         self.media_type = media_type
         self.details = details
     }
+    
+    
+    class func createMediaFrom(mediaEntity entity: MediaEntity) -> (Media){
+        print(entity)
+        let media = Media(id: Int(entity.id), title: entity.title!, poster_path: entity.poster_path!, overview: entity.overview!, vote_average: entity.vote_average, media_type: entity.media_type!, details: [:])
+        return media
+    }
+    
+    class func createMediaArrayFrom(mediaEntityArray: [MediaEntity]) -> ([Media]){
+        var mediaArray:[Media] = []
+        for entity in mediaEntityArray {
+            mediaArray.append(Media.createMediaFrom(mediaEntity: entity))
+        }
+        return mediaArray
+    }
 
 }

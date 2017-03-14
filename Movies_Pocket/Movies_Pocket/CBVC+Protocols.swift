@@ -54,7 +54,6 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         for favoriteMedia in (appDelegate?.storedFavoriteMedia)!{
             if favoriteMedia.id.toIntMax() == item.id.toIntMax() {
                 cell.favoriteButton.setFavorite(state: true)
-                print("Coincidencia: \(item.id.toIntMax()) + \(item.title)")
                 break;
             }
         }

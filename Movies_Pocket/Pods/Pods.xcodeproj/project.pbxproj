@@ -7,28 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28818D2A2515DCB4353FBA631E3802A8 /* MBCircularProgressBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BFBD4E945F2D55195130F58AADE91C1 /* MBCircularProgressBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		319581EA06B005E7BDEB2C12B37266A8 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A62CF75F5A4076A924FB5C1F0BC44C /* example.png */; };
-		4308C96E0CB6425B4BE27582D6F0612A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		5D87F3DADCD4493C556A08CE44F15C8B /* MBCircularProgressBarLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5788ADC7A3F67B9A0A021DE043D5AA93 /* MBCircularProgressBarLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		77C8278B25BBE7290F8A0818E1705A86 /* MBCircularProgressBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 909198F6FB4B8CE808160B368A23E1A5 /* MBCircularProgressBar-dummy.m */; };
-		7B5656D4FDD9E33EA4EAFB591F9D3237 /* MBCircularProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE177EE8E4529FD2D7E2F33EF0F2EEA /* MBCircularProgressBarView.m */; };
-		83BA158B5035E09C5593B750BF3DBA8A /* Pods-Movies_Pocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24897EBE6B8FA28EBCCBC018ECB6246C /* Pods-Movies_Pocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		854C1A45B35B515E785E04B521BD5061 /* Pods-Movies_Pocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2361A4244681FDC20F649348100ACD /* Pods-Movies_Pocket-dummy.m */; };
-		A17E6E1C53C7D3D2FA803DF74A013B78 /* MBCircularProgressBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C141292FED66CE59CDC3F21A739DD6 /* MBCircularProgressBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A94A11448B594303235C9908A4F04A8C /* MBCircularProgressBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D99656B9564A8FF9EB6AC5A58F113A6F /* MBCircularProgressBarLayer.m */; };
-		ABF93FCB1E7333C4DA22900A7789ACC8 /* MBCircularProgressBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2D60007F651E80A896908372EE99455F /* MBCircularProgressBar.bundle */; };
+		28818D2A2515DCB4353FBA631E3802A8 /* MBCircularProgressBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4D4B8315B9A4A8DDEEBB7BC8A678BA /* MBCircularProgressBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		319581EA06B005E7BDEB2C12B37266A8 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E96B2A86AF7981F6A3A0C9F9B24540 /* example.png */; };
+		331BE51514DD4F40868A30AB73C429C5 /* Pods-Movies_Pocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24897EBE6B8FA28EBCCBC018ECB6246C /* Pods-Movies_Pocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D87F3DADCD4493C556A08CE44F15C8B /* MBCircularProgressBarLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 817894CC6CA8F633E280AC0A2A037F25 /* MBCircularProgressBarLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D88B67B5126C2B78905B222EDE98D5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		764D9ABB905A5BA92E8FD73B9DADAF94 /* Pods-Movies_Pocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2361A4244681FDC20F649348100ACD /* Pods-Movies_Pocket-dummy.m */; };
+		77C8278B25BBE7290F8A0818E1705A86 /* MBCircularProgressBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A50A68CB2C348D94AACC3303D06E8 /* MBCircularProgressBar-dummy.m */; };
+		7B5656D4FDD9E33EA4EAFB591F9D3237 /* MBCircularProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB8AE8696CACA69C946320F11A5ACB0 /* MBCircularProgressBarView.m */; };
+		8628C2337893C684C65F5EB1E75E8464 /* FTPopOverMenu_Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA79094DB5AE66FCC01C6BE9B67EE2FC /* FTPopOverMenu_Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A17E6E1C53C7D3D2FA803DF74A013B78 /* MBCircularProgressBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = B4C43085470A6E89B4790E5E48213E23 /* MBCircularProgressBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A94A11448B594303235C9908A4F04A8C /* MBCircularProgressBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C04DCC665623C5D291373AEB2E63C017 /* MBCircularProgressBarLayer.m */; };
+		ABF93FCB1E7333C4DA22900A7789ACC8 /* MBCircularProgressBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C0E02DF50FFE1AD55BE5D3BDE1DD3C16 /* MBCircularProgressBar.bundle */; };
+		BC41E7B87FC45DAC600C91253B56BD40 /* FTPopOverMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD364DC09DDED0D8F0F1700095E108E9 /* FTPopOverMenu.swift */; };
+		CEB89D5EAF766064B93897C10D94322F /* FTPopOverMenu_Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A2629ABF2CC4B35EDE9BAAAD72460C /* FTPopOverMenu_Swift-dummy.m */; };
+		E0382723033480B62C0880A6E12BDC75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		F8C312F6DD0048872E4963078DA88FEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1E71BB20D0CBE35B69B8E0E579236EFA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F579AA4D4755DD9570010BC36D0422F7;
-			remoteInfo = MBCircularProgressBar;
-		};
 		301A6F64EDD08CFF4C105CE828187E61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -36,52 +33,74 @@
 			remoteGlobalIDString = CAC840DD7C14BED838F74AD37CD7CBBA;
 			remoteInfo = "MBCircularProgressBar-MBCircularProgressBar";
 		};
+		68D92A1193CB558B5B54E66216845B57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F579AA4D4755DD9570010BC36D0422F7;
+			remoteInfo = MBCircularProgressBar;
+		};
+		BF012C39E8FA6D64B9A05279C491D746 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4EC9035DEC9ACAE2EC8ADAAC0B00FFA;
+			remoteInfo = FTPopOverMenu_Swift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0BFBD4E945F2D55195130F58AADE91C1 /* MBCircularProgressBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBCircularProgressBar-umbrella.h"; sourceTree = "<group>"; };
+		15A2629ABF2CC4B35EDE9BAAAD72460C /* FTPopOverMenu_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FTPopOverMenu_Swift-dummy.m"; sourceTree = "<group>"; };
 		24897EBE6B8FA28EBCCBC018ECB6246C /* Pods-Movies_Pocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Movies_Pocket-umbrella.h"; sourceTree = "<group>"; };
-		2D60007F651E80A896908372EE99455F /* MBCircularProgressBar.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MBCircularProgressBar.bundle; path = MBCircularProgressBar.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA1EFD6FBE1B0A27CA74E29232F82A6 /* FTPopOverMenu_Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FTPopOverMenu_Swift.modulemap; sourceTree = "<group>"; };
+		3EB8AE8696CACA69C946320F11A5ACB0 /* MBCircularProgressBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBCircularProgressBarView.m; path = Pod/Classes/MBCircularProgressBarView.m; sourceTree = "<group>"; };
+		4037F62C3E70F2AF8F6ECFF0903CF10C /* FTPopOverMenu_Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FTPopOverMenu_Swift.xcconfig; sourceTree = "<group>"; };
 		42D82ED6001D01A10B2A20CABC540E82 /* Pods-Movies_Pocket-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Movies_Pocket-acknowledgements.plist"; sourceTree = "<group>"; };
 		49BA712BE6C6CE27B56E7855747025EE /* Pods-Movies_Pocket-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Movies_Pocket-acknowledgements.markdown"; sourceTree = "<group>"; };
-		51A62CF75F5A4076A924FB5C1F0BC44C /* example.png */ = {isa = PBXFileReference; includeInIndex = 1; name = example.png; path = Pod/Assets/example.png; sourceTree = "<group>"; };
+		5129ADCEE3759E8ADBC96237D40A8B4B /* MBCircularProgressBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBCircularProgressBar-prefix.pch"; sourceTree = "<group>"; };
 		544AC1935CE410149E0C340344AFBFF9 /* Pods-Movies_Pocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Movies_Pocket.modulemap"; sourceTree = "<group>"; };
-		5788ADC7A3F67B9A0A021DE043D5AA93 /* MBCircularProgressBarLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBCircularProgressBarLayer.h; path = Pod/Classes/MBCircularProgressBarLayer.h; sourceTree = "<group>"; };
 		59F4F336CE69A1D659A7E6CE3A92E211 /* Pods-Movies_Pocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Movies_Pocket.release.xcconfig"; sourceTree = "<group>"; };
-		5AE177EE8E4529FD2D7E2F33EF0F2EEA /* MBCircularProgressBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBCircularProgressBarView.m; path = Pod/Classes/MBCircularProgressBarView.m; sourceTree = "<group>"; };
-		69C141292FED66CE59CDC3F21A739DD6 /* MBCircularProgressBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBCircularProgressBarView.h; path = Pod/Classes/MBCircularProgressBarView.h; sourceTree = "<group>"; };
+		65AD442CB5644091907527CEADFD1F9A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A60770B48639324AD1AD410E6ADE767 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		746F7F24B1FBBE777873AA989034E66A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87CB9CDB2C93985DD8701798853C92AE /* MBCircularProgressBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBCircularProgressBar.xcconfig; sourceTree = "<group>"; };
-		909198F6FB4B8CE808160B368A23E1A5 /* MBCircularProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBCircularProgressBar-dummy.m"; sourceTree = "<group>"; };
+		6AFB080C74F5CB98444B1E95BB98A8BF /* MBCircularProgressBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MBCircularProgressBar.modulemap; sourceTree = "<group>"; };
+		6F69963BADD9A3D4A877FD74CC58CACE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F4D4B8315B9A4A8DDEEBB7BC8A678BA /* MBCircularProgressBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBCircularProgressBar-umbrella.h"; sourceTree = "<group>"; };
+		817894CC6CA8F633E280AC0A2A037F25 /* MBCircularProgressBarLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBCircularProgressBarLayer.h; path = Pod/Classes/MBCircularProgressBarLayer.h; sourceTree = "<group>"; };
+		82E96B2A86AF7981F6A3A0C9F9B24540 /* example.png */ = {isa = PBXFileReference; includeInIndex = 1; name = example.png; path = Pod/Assets/example.png; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		99F7B0DCCC32AFC576BB067EA0A52401 /* MBCircularProgressBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MBCircularProgressBar.modulemap; sourceTree = "<group>"; };
-		9E14AE7F5858499958AFBDBE3B531DE0 /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBCircularProgressBar.framework; path = MBCircularProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7F5D2083B8B920C0FE2BEDCCB6E4F59 /* FTPopOverMenu_Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPopOverMenu_Swift-prefix.pch"; sourceTree = "<group>"; };
+		AC4A50A68CB2C348D94AACC3303D06E8 /* MBCircularProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBCircularProgressBar-dummy.m"; sourceTree = "<group>"; };
+		B4C43085470A6E89B4790E5E48213E23 /* MBCircularProgressBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MBCircularProgressBarView.h; path = Pod/Classes/MBCircularProgressBarView.h; sourceTree = "<group>"; };
+		B57CFE993EF7F7DD609BAD19524F143D /* FTPopOverMenu_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FTPopOverMenu_Swift.framework; path = FTPopOverMenu_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E35D2860B8FD302C526313B9F546DF /* Pods-Movies_Pocket-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Movies_Pocket-frameworks.sh"; sourceTree = "<group>"; };
-		BAB3C28BB8EB159D8F6E71D69FDBFF12 /* MBCircularProgressBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBCircularProgressBar-prefix.pch"; sourceTree = "<group>"; };
 		BDC51BC488E9C1F10644D7469421C05D /* Pods-Movies_Pocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Movies_Pocket.debug.xcconfig"; sourceTree = "<group>"; };
+		C04DCC665623C5D291373AEB2E63C017 /* MBCircularProgressBarLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBCircularProgressBarLayer.m; path = Pod/Classes/MBCircularProgressBarLayer.m; sourceTree = "<group>"; };
+		C0E02DF50FFE1AD55BE5D3BDE1DD3C16 /* MBCircularProgressBar.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MBCircularProgressBar.bundle; path = MBCircularProgressBar.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9027D8CB9996DC49EA9095D60493D29 /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBCircularProgressBar.framework; path = MBCircularProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2361A4244681FDC20F649348100ACD /* Pods-Movies_Pocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Movies_Pocket-dummy.m"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D99656B9564A8FF9EB6AC5A58F113A6F /* MBCircularProgressBarLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MBCircularProgressBarLayer.m; path = Pod/Classes/MBCircularProgressBarLayer.m; sourceTree = "<group>"; };
+		D3A6D4418B1C325A9D86B6581D48D343 /* ResourceBundle-MBCircularProgressBar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MBCircularProgressBar-Info.plist"; sourceTree = "<group>"; };
+		D95CABEAA02C924D83BED8871170E944 /* Pods_Movies_Pocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Movies_Pocket.framework; path = "Pods-Movies_Pocket.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8327F904526A1C91B86901A5785DDB /* MBCircularProgressBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBCircularProgressBar.xcconfig; sourceTree = "<group>"; };
 		ED23B34DFD5E15C31F0580C7D2844A22 /* Pods-Movies_Pocket-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Movies_Pocket-resources.sh"; sourceTree = "<group>"; };
-		F9D63D592CB8C323F229F93D3CBC2720 /* Pods_Movies_Pocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Movies_Pocket.framework; path = "Pods-Movies_Pocket.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9FE12D0A86E49C6870FDA07802FF9AB /* ResourceBundle-MBCircularProgressBar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-MBCircularProgressBar-Info.plist"; sourceTree = "<group>"; };
+		FA79094DB5AE66FCC01C6BE9B67EE2FC /* FTPopOverMenu_Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPopOverMenu_Swift-umbrella.h"; sourceTree = "<group>"; };
+		FD364DC09DDED0D8F0F1700095E108E9 /* FTPopOverMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPopOverMenu.swift; path = FTPopOverMenu_Swift/FTPopOverMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1E0CAE72BCC9919012D7822D7F2FD6AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4308C96E0CB6425B4BE27582D6F0612A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8BB1B21FFE3B565A90266277AE2A5852 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F8C312F6DD0048872E4963078DA88FEF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E6B2D2F9CF46F0E61E9D16271ECC795 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0382723033480B62C0880A6E12BDC75 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,21 +111,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDCC065364B881A363E34FC9214A7EEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D88B67B5126C2B78905B222EDE98D5D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0984DE60AEB3D4067B00E90F4E15705E /* MBCircularProgressBar */ = {
+		061363EE10B14C5665D46B7E9CF4BAD0 /* FTPopOverMenu_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				5788ADC7A3F67B9A0A021DE043D5AA93 /* MBCircularProgressBarLayer.h */,
-				D99656B9564A8FF9EB6AC5A58F113A6F /* MBCircularProgressBarLayer.m */,
-				69C141292FED66CE59CDC3F21A739DD6 /* MBCircularProgressBarView.h */,
-				5AE177EE8E4529FD2D7E2F33EF0F2EEA /* MBCircularProgressBarView.m */,
-				9010DB02E982E81F33DC15B7164B9D12 /* Resources */,
-				43B00FB94624817CB0539C3F591B3723 /* Support Files */,
+				FD364DC09DDED0D8F0F1700095E108E9 /* FTPopOverMenu.swift */,
+				A6DA5F16F72D25820FE24A5F2E2DA215 /* Support Files */,
 			);
-			name = MBCircularProgressBar;
-			path = MBCircularProgressBar;
+			name = FTPopOverMenu_Swift;
+			path = FTPopOverMenu_Swift;
 			sourceTree = "<group>";
 		};
 		12ED2BFE6B6B24FAA37AE8B67328A8B1 /* Targets Support Files */ = {
@@ -135,21 +158,6 @@
 			path = "Target Support Files/Pods-Movies_Pocket";
 			sourceTree = "<group>";
 		};
-		43B00FB94624817CB0539C3F591B3723 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				746F7F24B1FBBE777873AA989034E66A /* Info.plist */,
-				99F7B0DCCC32AFC576BB067EA0A52401 /* MBCircularProgressBar.modulemap */,
-				87CB9CDB2C93985DD8701798853C92AE /* MBCircularProgressBar.xcconfig */,
-				909198F6FB4B8CE808160B368A23E1A5 /* MBCircularProgressBar-dummy.m */,
-				BAB3C28BB8EB159D8F6E71D69FDBFF12 /* MBCircularProgressBar-prefix.pch */,
-				0BFBD4E945F2D55195130F58AADE91C1 /* MBCircularProgressBar-umbrella.h */,
-				F9FE12D0A86E49C6870FDA07802FF9AB /* ResourceBundle-MBCircularProgressBar-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MBCircularProgressBar";
-			sourceTree = "<group>";
-		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,31 +166,37 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		7D08CD240D8BC90AAB6400C7577A87FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82E96B2A86AF7981F6A3A0C9F9B24540 /* example.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				99B2C67CA07FD535D45477311BCDB0D6 /* Pods */,
-				EA327838AA3463D078A71B3B93C72C8B /* Products */,
+				FECA2DF24698865CE36C4A25DA216FA7 /* Pods */,
+				E26575F667C67249FC467BF4B072252E /* Products */,
 				12ED2BFE6B6B24FAA37AE8B67328A8B1 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9010DB02E982E81F33DC15B7164B9D12 /* Resources */ = {
+		A6DA5F16F72D25820FE24A5F2E2DA215 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				51A62CF75F5A4076A924FB5C1F0BC44C /* example.png */,
+				3EA1EFD6FBE1B0A27CA74E29232F82A6 /* FTPopOverMenu_Swift.modulemap */,
+				4037F62C3E70F2AF8F6ECFF0903CF10C /* FTPopOverMenu_Swift.xcconfig */,
+				15A2629ABF2CC4B35EDE9BAAAD72460C /* FTPopOverMenu_Swift-dummy.m */,
+				A7F5D2083B8B920C0FE2BEDCCB6E4F59 /* FTPopOverMenu_Swift-prefix.pch */,
+				FA79094DB5AE66FCC01C6BE9B67EE2FC /* FTPopOverMenu_Swift-umbrella.h */,
+				6F69963BADD9A3D4A877FD74CC58CACE /* Info.plist */,
 			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		99B2C67CA07FD535D45477311BCDB0D6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0984DE60AEB3D4067B00E90F4E15705E /* MBCircularProgressBar */,
-			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/FTPopOverMenu_Swift";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -193,19 +207,66 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA327838AA3463D078A71B3B93C72C8B /* Products */ = {
+		CF2CA1CAB3BE0879DF88E636BAA31E5A /* MBCircularProgressBar */ = {
 			isa = PBXGroup;
 			children = (
-				2D60007F651E80A896908372EE99455F /* MBCircularProgressBar.bundle */,
-				9E14AE7F5858499958AFBDBE3B531DE0 /* MBCircularProgressBar.framework */,
-				F9D63D592CB8C323F229F93D3CBC2720 /* Pods_Movies_Pocket.framework */,
+				817894CC6CA8F633E280AC0A2A037F25 /* MBCircularProgressBarLayer.h */,
+				C04DCC665623C5D291373AEB2E63C017 /* MBCircularProgressBarLayer.m */,
+				B4C43085470A6E89B4790E5E48213E23 /* MBCircularProgressBarView.h */,
+				3EB8AE8696CACA69C946320F11A5ACB0 /* MBCircularProgressBarView.m */,
+				7D08CD240D8BC90AAB6400C7577A87FB /* Resources */,
+				E923E92D63356BF364C1B4EF9FC49BA7 /* Support Files */,
+			);
+			name = MBCircularProgressBar;
+			path = MBCircularProgressBar;
+			sourceTree = "<group>";
+		};
+		E26575F667C67249FC467BF4B072252E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B57CFE993EF7F7DD609BAD19524F143D /* FTPopOverMenu_Swift.framework */,
+				C0E02DF50FFE1AD55BE5D3BDE1DD3C16 /* MBCircularProgressBar.bundle */,
+				C9027D8CB9996DC49EA9095D60493D29 /* MBCircularProgressBar.framework */,
+				D95CABEAA02C924D83BED8871170E944 /* Pods_Movies_Pocket.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E923E92D63356BF364C1B4EF9FC49BA7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				65AD442CB5644091907527CEADFD1F9A /* Info.plist */,
+				6AFB080C74F5CB98444B1E95BB98A8BF /* MBCircularProgressBar.modulemap */,
+				DD8327F904526A1C91B86901A5785DDB /* MBCircularProgressBar.xcconfig */,
+				AC4A50A68CB2C348D94AACC3303D06E8 /* MBCircularProgressBar-dummy.m */,
+				5129ADCEE3759E8ADBC96237D40A8B4B /* MBCircularProgressBar-prefix.pch */,
+				7F4D4B8315B9A4A8DDEEBB7BC8A678BA /* MBCircularProgressBar-umbrella.h */,
+				D3A6D4418B1C325A9D86B6581D48D343 /* ResourceBundle-MBCircularProgressBar-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MBCircularProgressBar";
+			sourceTree = "<group>";
+		};
+		FECA2DF24698865CE36C4A25DA216FA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				061363EE10B14C5665D46B7E9CF4BAD0 /* FTPopOverMenu_Swift */,
+				CF2CA1CAB3BE0879DF88E636BAA31E5A /* MBCircularProgressBar */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		920CB74573349A3844DF91325FAAEE75 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8628C2337893C684C65F5EB1E75E8464 /* FTPopOverMenu_Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA9C7CA2523496D07CD7F26C918D7881 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,33 +277,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB69481455C76ACB941D5925B6F113A3 /* Headers */ = {
+		DBC28A60DEFD5FE47893D1751617B864 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83BA158B5035E09C5593B750BF3DBA8A /* Pods-Movies_Pocket-umbrella.h in Headers */,
+				331BE51514DD4F40868A30AB73C429C5 /* Pods-Movies_Pocket-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A2CD4CD499D9834620408AA8E287CEDF /* Pods-Movies_Pocket */ = {
+		55F9D978D238D0025E93D60F63449EE3 /* Pods-Movies_Pocket */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E21FD448506EF4A6B581519856D1A31F /* Build configuration list for PBXNativeTarget "Pods-Movies_Pocket" */;
+			buildConfigurationList = 6EACCCB67E631673875BE183712D9E7B /* Build configuration list for PBXNativeTarget "Pods-Movies_Pocket" */;
 			buildPhases = (
-				44FD8EEF42786552453F60768C8E0AFF /* Sources */,
-				1E0CAE72BCC9919012D7822D7F2FD6AF /* Frameworks */,
-				DB69481455C76ACB941D5925B6F113A3 /* Headers */,
+				97AACDABA2763812E1C2CD8889717397 /* Sources */,
+				8E6B2D2F9CF46F0E61E9D16271ECC795 /* Frameworks */,
+				DBC28A60DEFD5FE47893D1751617B864 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C9DDFAC594C99BD396F4BDF8C59044F9 /* PBXTargetDependency */,
+				FD7A22D290369DA5F750862C2310B560 /* PBXTargetDependency */,
+				C83E264AC8D5A4EDC311B245A3252EFD /* PBXTargetDependency */,
 			);
 			name = "Pods-Movies_Pocket";
 			productName = "Pods-Movies_Pocket";
-			productReference = F9D63D592CB8C323F229F93D3CBC2720 /* Pods_Movies_Pocket.framework */;
+			productReference = D95CABEAA02C924D83BED8871170E944 /* Pods_Movies_Pocket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A4EC9035DEC9ACAE2EC8ADAAC0B00FFA /* FTPopOverMenu_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01F37EC0084F9968F11D2D2A63A527F3 /* Build configuration list for PBXNativeTarget "FTPopOverMenu_Swift" */;
+			buildPhases = (
+				E58FE6EC59C5CABF6CCA26FD2D2ABB42 /* Sources */,
+				BDCC065364B881A363E34FC9214A7EEC /* Frameworks */,
+				920CB74573349A3844DF91325FAAEE75 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FTPopOverMenu_Swift;
+			productName = FTPopOverMenu_Swift;
+			productReference = B57CFE993EF7F7DD609BAD19524F143D /* FTPopOverMenu_Swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CAC840DD7C14BED838F74AD37CD7CBBA /* MBCircularProgressBar-MBCircularProgressBar */ = {
@@ -259,7 +338,7 @@
 			);
 			name = "MBCircularProgressBar-MBCircularProgressBar";
 			productName = "MBCircularProgressBar-MBCircularProgressBar";
-			productReference = 2D60007F651E80A896908372EE99455F /* MBCircularProgressBar.bundle */;
+			productReference = C0E02DF50FFE1AD55BE5D3BDE1DD3C16 /* MBCircularProgressBar.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		F579AA4D4755DD9570010BC36D0422F7 /* MBCircularProgressBar */ = {
@@ -278,7 +357,7 @@
 			);
 			name = MBCircularProgressBar;
 			productName = MBCircularProgressBar;
-			productReference = 9E14AE7F5858499958AFBDBE3B531DE0 /* MBCircularProgressBar.framework */;
+			productReference = C9027D8CB9996DC49EA9095D60493D29 /* MBCircularProgressBar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -298,13 +377,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = EA327838AA3463D078A71B3B93C72C8B /* Products */;
+			productRefGroup = E26575F667C67249FC467BF4B072252E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A4EC9035DEC9ACAE2EC8ADAAC0B00FFA /* FTPopOverMenu_Swift */,
 				F579AA4D4755DD9570010BC36D0422F7 /* MBCircularProgressBar */,
 				CAC840DD7C14BED838F74AD37CD7CBBA /* MBCircularProgressBar-MBCircularProgressBar */,
-				A2CD4CD499D9834620408AA8E287CEDF /* Pods-Movies_Pocket */,
+				55F9D978D238D0025E93D60F63449EE3 /* Pods-Movies_Pocket */,
 			);
 		};
 /* End PBXProject section */
@@ -329,11 +409,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		44FD8EEF42786552453F60768C8E0AFF /* Sources */ = {
+		97AACDABA2763812E1C2CD8889717397 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				854C1A45B35B515E785E04B521BD5061 /* Pods-Movies_Pocket-dummy.m in Sources */,
+				764D9ABB905A5BA92E8FD73B9DADAF94 /* Pods-Movies_Pocket-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +421,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E58FE6EC59C5CABF6CCA26FD2D2ABB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC41E7B87FC45DAC600C91253B56BD40 /* FTPopOverMenu.swift in Sources */,
+				CEB89D5EAF766064B93897C10D94322F /* FTPopOverMenu_Swift-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,17 +446,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C9DDFAC594C99BD396F4BDF8C59044F9 /* PBXTargetDependency */ = {
+		C83E264AC8D5A4EDC311B245A3252EFD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MBCircularProgressBar;
 			target = F579AA4D4755DD9570010BC36D0422F7 /* MBCircularProgressBar */;
-			targetProxy = 1E71BB20D0CBE35B69B8E0E579236EFA /* PBXContainerItemProxy */;
+			targetProxy = 68D92A1193CB558B5B54E66216845B57 /* PBXContainerItemProxy */;
 		};
 		D71C0FC33E6BF208246BD36D722BEA99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MBCircularProgressBar-MBCircularProgressBar";
 			target = CAC840DD7C14BED838F74AD37CD7CBBA /* MBCircularProgressBar-MBCircularProgressBar */;
 			targetProxy = 301A6F64EDD08CFF4C105CE828187E61 /* PBXContainerItemProxy */;
+		};
+		FD7A22D290369DA5F750862C2310B560 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FTPopOverMenu_Swift;
+			target = A4EC9035DEC9ACAE2EC8ADAAC0B00FFA /* FTPopOverMenu_Swift */;
+			targetProxy = BF012C39E8FA6D64B9A05279C491D746 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -416,7 +511,7 @@
 			};
 			name = Debug;
 		};
-		232BBA9FB04232C8B383B56701531249 /* Release */ = {
+		2EA38E30DAA3BFF8E670EB1C74C1D288 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59F4F336CE69A1D659A7E6CE3A92E211 /* Pods-Movies_Pocket.release.xcconfig */;
 			buildSettings = {
@@ -453,7 +548,7 @@
 		};
 		48702675E65C8136B174B34BAE261DAF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87CB9CDB2C93985DD8701798853C92AE /* MBCircularProgressBar.xcconfig */;
+			baseConfigurationReference = DD8327F904526A1C91B86901A5785DDB /* MBCircularProgressBar.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -485,7 +580,7 @@
 		};
 		5AC3052CFD64B4CA67ABCB86AC8136E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87CB9CDB2C93985DD8701798853C92AE /* MBCircularProgressBar.xcconfig */;
+			baseConfigurationReference = DD8327F904526A1C91B86901A5785DDB /* MBCircularProgressBar.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -515,9 +610,42 @@
 			};
 			name = Debug;
 		};
+		684AC501EC8CF27E41F9D37F06EA10DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4037F62C3E70F2AF8F6ECFF0903CF10C /* FTPopOverMenu_Swift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FTPopOverMenu_Swift/FTPopOverMenu_Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FTPopOverMenu_Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FTPopOverMenu_Swift/FTPopOverMenu_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FTPopOverMenu_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		A6646F4242B659BF18FC82CF17D24332 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87CB9CDB2C93985DD8701798853C92AE /* MBCircularProgressBar.xcconfig */;
+			baseConfigurationReference = DD8327F904526A1C91B86901A5785DDB /* MBCircularProgressBar.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MBCircularProgressBar";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -534,7 +662,7 @@
 		};
 		DA88F093F06F44657D227F22410BDE95 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87CB9CDB2C93985DD8701798853C92AE /* MBCircularProgressBar.xcconfig */;
+			baseConfigurationReference = DD8327F904526A1C91B86901A5785DDB /* MBCircularProgressBar.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/MBCircularProgressBar";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -549,40 +677,37 @@
 			};
 			name = Debug;
 		};
-		E5F01E558C7700CE8C4B61C26A9C9264 /* Debug */ = {
+		E088536433C4770532614CBD5403FD61 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDC51BC488E9C1F10644D7469421C05D /* Pods-Movies_Pocket.debug.xcconfig */;
+			baseConfigurationReference = 4037F62C3E70F2AF8F6ECFF0903CF10C /* FTPopOverMenu_Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Movies_Pocket/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/FTPopOverMenu_Swift/FTPopOverMenu_Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FTPopOverMenu_Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Movies_Pocket/Pods-Movies_Pocket.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Movies_Pocket;
+				MODULEMAP_FILE = "Target Support Files/FTPopOverMenu_Swift/FTPopOverMenu_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FTPopOverMenu_Swift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -624,9 +749,54 @@
 			};
 			name = Release;
 		};
+		F7ACFEE3939701A69C604CD46E56BADF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDC51BC488E9C1F10644D7469421C05D /* Pods-Movies_Pocket.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Movies_Pocket/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Movies_Pocket/Pods-Movies_Pocket.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Movies_Pocket;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01F37EC0084F9968F11D2D2A63A527F3 /* Build configuration list for PBXNativeTarget "FTPopOverMenu_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				684AC501EC8CF27E41F9D37F06EA10DD /* Debug */,
+				E088536433C4770532614CBD5403FD61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -645,20 +815,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6EACCCB67E631673875BE183712D9E7B /* Build configuration list for PBXNativeTarget "Pods-Movies_Pocket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7ACFEE3939701A69C604CD46E56BADF /* Debug */,
+				2EA38E30DAA3BFF8E670EB1C74C1D288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B4E20D41BA21B8C5E09AC977A80690CB /* Build configuration list for PBXNativeTarget "MBCircularProgressBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AC3052CFD64B4CA67ABCB86AC8136E1 /* Debug */,
 				48702675E65C8136B174B34BAE261DAF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E21FD448506EF4A6B581519856D1A31F /* Build configuration list for PBXNativeTarget "Pods-Movies_Pocket" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E5F01E558C7700CE8C4B61C26A9C9264 /* Debug */,
-				232BBA9FB04232C8B383B56701531249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

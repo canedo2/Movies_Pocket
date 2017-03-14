@@ -25,6 +25,7 @@ class CoreDataHelper {
                                           insertInto: managedContext)
         
         mediaEntity.setValue(media.id, forKey: "id")
+        mediaEntity.setValue(media.title, forKey: "title")
         mediaEntity.setValue(media.media_type, forKey: "media_type")
         mediaEntity.setValue(media.overview, forKey: "overview")
         mediaEntity.setValue(media.poster_path, forKey: "poster_path")

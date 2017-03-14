@@ -29,7 +29,6 @@ class DetailsViewController: BaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
         gradient.frame = view.bounds
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
         backgroundView.layer.insertSublayer(gradient, at: 0)
@@ -113,7 +112,6 @@ class DetailsViewController: BaseViewController {
         for favoriteMedia in (appDelegate?.storedFavoriteMedia)!{
             if favoriteMedia.id.toIntMax() == media?.id.toIntMax() {
                 favoriteButton.setFavorite(state: true)
-                print("Coincidencia: \(media?.id.toIntMax()) + \(media?.title)")
                 break;
             }
         }
