@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backgroundView: UIView!
     let gradient = CAGradientLayer()
@@ -43,23 +43,12 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         APIHelper.getSearch(page: 1, searchString: searchString, collectionView: collectionView)
     }
     
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
-        
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //Get more pages if showing news
-        if(indexPath.row == appDelegate!.model.foundItems.count-1 && showingNowPlaying){
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) / scrollView.contentSize.height > 0.95 {
             APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView)
         }
-        
-        return cell
     }
-    
-    /*func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //Get more pages if showing news
-        APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView)
-    }*/
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

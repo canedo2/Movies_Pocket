@@ -11,6 +11,7 @@ import UIKit
 class CollectionBaseViewController: BaseViewController {
     
     let reuseID = "ItemCell"
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

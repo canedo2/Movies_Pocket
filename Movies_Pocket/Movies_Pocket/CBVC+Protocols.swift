@@ -71,7 +71,7 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
             
             //IPAD PORTRAIT CONF
             if(UIDevice.current.userInterfaceIdiom == .pad){
-                size = CGSize(width: (cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left*2))/2,
+                size = CGSize(width: (cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left))/2,
                               height: cv.frame.height/4)
             }
             //IPHONE PORTRAIT CONF
@@ -85,13 +85,13 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         else{
             //IPAD LANDSCAPE CONF
             if(UIDevice.current.userInterfaceIdiom == .pad){
-                size = CGSize(width:(cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left)*2)/3 ,
-                          height: (cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom)*4)/4)
+                size = CGSize(width:(cv.frame.width-(layout.minimumInteritemSpacing*2+layout.sectionInset.right+layout.sectionInset.left))/3,
+                              height: (cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom)*4)/4)
             }
                 //IPHONE LANDSCAPE CONF
             else{
-                size = CGSize(width:cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left) ,
-                              height: cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom))
+                size = CGSize(width:(cv.frame.width-(layout.minimumInteritemSpacing+layout.sectionInset.right+layout.sectionInset.left))/2 ,
+                              height: (cv.frame.height - (layout.sectionInset.top + layout.sectionInset.bottom))/2)
             }
         }
         
@@ -100,7 +100,7 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "DetailSegue"){
-            //print("Performing segue")
+            (segue.destination as! DetailsViewController).previousCollectionView = self.collectionView
             segue.perform()
         }
     }

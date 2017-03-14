@@ -9,7 +9,8 @@
 import UIKit
 
 class DetailsViewController: BaseViewController {
-    var media: Media? = nil
+    var media: Media?
+    var previousCollectionView: UICollectionView?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleView: UILabel!
@@ -124,6 +125,7 @@ class DetailsViewController: BaseViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
+        previousCollectionView?.reloadData()
         self.dismiss(animated: true, completion: nil)
     }
     
