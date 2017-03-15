@@ -124,6 +124,7 @@
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbS-IP-sLj">
                                         <rect key="frame" x="940" y="1238" width="60" height="60"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qbS-IP-sLj" secondAttribute="height" multiplier="1:1" id="Hkm-wS-loX"/>
                                             <constraint firstAttribute="width" constant="60" id="OdE-g2-Egx"/>
@@ -131,6 +132,7 @@
                                         <state key="normal" backgroundImage="menu-image-empty"/>
                                         <connections>
                                             <action selector="menuButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ao6-SE-Xvz"/>
+                                            <outletCollection property="gestureRecognizers" destination="jQm-co-oPG" appends="YES" id="2V5-Cy-07b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -165,6 +167,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="jQm-co-oPG">
+                    <connections>
+                        <action selector="panMenuButtonAction:" destination="BYZ-38-t0r" id="fKr-Sy-UDw"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-118.125" y="-51.25"/>
         </scene>

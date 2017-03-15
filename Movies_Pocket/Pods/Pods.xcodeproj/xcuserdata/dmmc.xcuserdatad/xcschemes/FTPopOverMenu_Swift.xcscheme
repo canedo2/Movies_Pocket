@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "55F9D978D238D0025E93D60F63449EE3"
-               BuildableName = "Pods_Movies_Pocket.framework"
-               BlueprintName = "Pods-Movies_Pocket"
+               BlueprintIdentifier = "A4EC9035DEC9ACAE2EC8ADAAC0B00FFA"
+               BuildableName = "FTPopOverMenu_Swift.framework"
+               BlueprintName = "FTPopOverMenu_Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "55F9D978D238D0025E93D60F63449EE3"
-            BuildableName = "Pods_Movies_Pocket.framework"
-            BlueprintName = "Pods-Movies_Pocket"
+            BlueprintIdentifier = "A4EC9035DEC9ACAE2EC8ADAAC0B00FFA"
+            BuildableName = "FTPopOverMenu_Swift.framework"
+            BlueprintName = "FTPopOverMenu_Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

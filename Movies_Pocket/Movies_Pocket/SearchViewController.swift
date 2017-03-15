@@ -19,12 +19,16 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     let gradient = CAGradientLayer()
     
     var showingNowPlaying = true
+    var menuButtonMoved = false
     var menuOptionNameArray : [String] = ["Favoritos","Novedades","About"]
     var menuOptionImageNameArray : [String] = ["favorite-menu-icon","news","about-us"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView)
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
         backgroundView.layer.insertSublayer(gradient, at: 0)
@@ -42,13 +46,29 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
             menuConfiguration.textFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)!
         }
         
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeynoard))
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tapGR)
     
     }
 
-    @objc func dismissKeynoard(){
+    @objc func dismissKeyboard(){
         self.view.endEditing(true)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if menuButton.frame.origin.y > (self.view.frame.height - keyboardSize.height) {
+                menuButton.frame.origin.y = self.view.frame.height - (keyboardSize.height + menuButton.frame.height + menuButton.frame.height/2 )
+                menuButtonMoved = true
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if menuButtonMoved {
+                menuButton.frame.origin.y = self.view.frame.height - (menuButton.frame.height + menuButton.frame.height/2 )
+                menuButtonMoved = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,7 +135,20 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         
         sender.setBackgroundImage(UIImage.init(named: "menu-image-full"), for: .normal)    }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    @IBAction func panMenuButtonAction(_ sender: UIPanGestureRecognizer) {
+        
+        if (sender.view!.center.y + sender.translation(in: view).y) > (sender.view!.frame.height)
+        && (sender.view!.center.y + sender.translation(in: view).y) < (view.frame.height - (sender.view!.frame.height)) {
+            sender.view!.center.y = sender.view!.center.y + sender.translation(in: view).y
+        }
+        
+        if (sender.view!.center.x + sender.translation(in: view).x) > (sender.view!.frame.width/2)
+            && (sender.view!.center.x + sender.translation(in: view).x) < (view.frame.width - (sender.view!.frame.width/2)) {
+            sender.view!.center.x = sender.view!.center.x + sender.translation(in: view).x
+        }
+        
+        sender.setTranslation(CGPoint.zero, in: view)
     }
+    
+    
 }
