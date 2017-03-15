@@ -51,8 +51,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="275" height="157"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-Od-RrR">
+                                                        <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-Od-RrR">
                                                             <rect key="frame" x="0.0" y="0.0" width="105" height="157"/>
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="3aR-Od-RrR" secondAttribute="height" multiplier="10:15" id="93X-9a-Nmr"/>
                                                             </constraints>

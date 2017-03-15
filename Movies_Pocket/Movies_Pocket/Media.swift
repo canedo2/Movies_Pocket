@@ -36,7 +36,6 @@ class Media {
     
     
     class func createMediaFrom(mediaEntity entity: MediaEntity) -> (Media){
-        print(entity)
         let media = Media(id: Int(entity.id), title: entity.title!, poster_path: entity.poster_path!, overview: entity.overview!, vote_average: entity.vote_average, media_type: entity.media_type!, details: [:])
         return media
     }

@@ -105,6 +105,12 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         backgroundView.layoutIfNeeded()
         collectionView.collectionViewLayout.invalidateLayout()
      }
+    override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! MediaCell
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.tapCellImageAction(_:)))
+        cell.image.addGestureRecognizer(tapGR)
+        return cell
+    }
     
     @IBAction func menuButtonAction(_ sender: UIButton) {
         FTPopOverMenu.showForSender(sender: sender, with: menuOptionNameArray, menuImageArray: menuOptionImageNameArray, done: { (selectedIndex) -> () in
@@ -128,12 +134,12 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                 break;
             default:break;
             }
-            print(selectedIndex)
         }) {
            sender.setBackgroundImage(UIImage.init(named: "menu-image-empty"), for: .normal)
         }
         
         sender.setBackgroundImage(UIImage.init(named: "menu-image-full"), for: .normal)    }
+    
     
     @IBAction func panMenuButtonAction(_ sender: UIPanGestureRecognizer) {
         
@@ -146,9 +152,35 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
             && (sender.view!.center.x + sender.translation(in: view).x) < (view.frame.width - (sender.view!.frame.width/2)) {
             sender.view!.center.x = sender.view!.center.x + sender.translation(in: view).x
         }
-        
         sender.setTranslation(CGPoint.zero, in: view)
     }
     
-    
-}
+    @IBAction func tapCellImageAction(_ sender: UITapGestureRecognizer) {
+        
+        let indexPath = collectionView.indexPath(for: sender.view?.superview?.superview as! MediaCell)
+        
+        let media = appDelegate!.model.foundItems[indexPath!.row]
+        appDelegate!.model.selectedMedia = media
+        
+        let loadingView: UIView
+        let activityIndicator: UIActivityIndicatorView
+        (loadingView,activityIndicator) = InterfaceHelper.createLoadingView()
+        
+        view.addSubview(loadingView)
+        activityIndicator.startAnimating()
+        
+        APIHelper.getDetails(media: media,
+                             onCompletion: {
+                                activityIndicator.stopAnimating()
+                                loadingView.removeFromSuperview()
+                                let controller = UIApplication.shared.keyWindow?.rootViewController;
+                                controller?.performSegue(withIdentifier: "DetailSegue", sender: controller)
+        },
+                             onError: {
+                                activityIndicator.stopAnimating()
+                                loadingView.removeFromSuperview()
+                                //Show error
+                                let alert = InterfaceHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
+                                self.present(alert, animated: true, completion: nil)
+        })
+    }}
