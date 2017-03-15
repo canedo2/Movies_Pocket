@@ -18,11 +18,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _gradient = [[CAGradientLayer alloc]init];
+    
+    _gradient = [CAGradientLayer layer];
     _gradient.frame = self.view.bounds;
-    _gradient.colors = [NSArray arrayWithObjects:[[UIColor alloc] initWithRed:0.5 green:0 blue: 0.1 alpha:0.2],
-                        [[UIColor alloc] initWithRed:0.53 green:0.06 blue: 0.27 alpha:1.0], nil];
+    
+    UIColor* color1 = [UIColor colorWithRed:0.5
+                                      green:0
+                                       blue:0.1
+                                      alpha:0.2];
+    
+    UIColor* color2 = [UIColor colorWithRed:0.53
+                                      green:0.06
+                                       blue:0.27
+                                      alpha:1.0];
+    
+    NSArray* gradientColors = @[(id)color1.CGColor,(id)color2.CGColor];
+    
+    _gradient.colors = gradientColors;
+    
     [_backgroundView.layer insertSublayer:_gradient atIndex:0];
+    
 }
 
 - (void)didReceiveMemoryWarning {
