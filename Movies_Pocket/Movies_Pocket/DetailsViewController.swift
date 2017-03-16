@@ -37,7 +37,7 @@ class DetailsViewController: BaseViewController {
         
         self.ratingView.value = 0.0
         
-        APIHelper.getImage(image: imageView, imageString: media!.poster_path, onCompletion:{}, onError: {})
+        APIHelper.getImage(imageView: imageView, imageString: media!.poster_path/*, onCompletion:{}, onError: {}*/)
         titleView.text = media?.title
         
         if (media?.media_type == "movie"){
@@ -57,6 +57,7 @@ class DetailsViewController: BaseViewController {
         
         if media?.overview == "" {
             overviewView.text = "No hay sinopsis disponible"
+            overviewView.textAlignment = .center
         }
         else{
             overviewView.text = media?.overview
@@ -65,30 +66,42 @@ class DetailsViewController: BaseViewController {
         let genres = media?.details["genres"]
         
         genresView.text = ""
-        
-        for genre in (genres as? NSArray ?? []){
-            let genreItem = genre as! [String:Any]
-            let genreName = genreItem["name"] as! String
-            genresView.text?.append(genreName)
-            genresView.text?.append(" ")
+        if (genres?.count)! > 1 {
+            for genre in (genres as? NSArray ?? []){
+                let genreItem = genre as! [String:Any]
+                let genreName = genreItem["name"] as! String
+                genresView.text?.append(genreName)
+                genresView.text?.append(" ")
+            }
         }
+        else{
+            genresView.text?.append("No hay géneros disponibles")
+        
+        }
+        
         
         let companies = media!.details["production_companies"]
         
         companiesView.text = ""
-        var count = companies!.count - 1
-        for company in (companies as? NSArray ?? []){
-            let companyItem = company as! [String:Any]
-            let companyName = companyItem["name"] as! String
-            
-            companiesView.text?.append(companyName)
-            
-            count-=count;
-            if (count != 0){
-                companiesView.text?.append("\n")
+        
+        if (companies?.count)! > 1{
+            var count = companies!.count - 1
+            for company in (companies as? NSArray ?? []){
+                let companyItem = company as! [String:Any]
+                let companyName = companyItem["name"] as! String
+                
+                companiesView.text?.append(companyName)
+                
+                count-=count;
+                if (count != 0){
+                    companiesView.text?.append("\n")
+                }
             }
-            
         }
+        else{
+            companiesView.text?.append("No hay productoras disponibles")
+        }
+        
         
         moreInfo.text = ""
         if(media?.media_type == "movie"){

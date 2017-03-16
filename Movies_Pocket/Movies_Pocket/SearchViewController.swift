@@ -92,7 +92,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //Get more pages if showing news
-        if (((scrollView.contentOffset.y + scrollView.frame.size.height) / scrollView.contentSize.height > 0.95) && showingNowPlaying){
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) / scrollView.contentSize.height > 0.98) && showingNowPlaying){
             APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView)
         }
     }
@@ -105,6 +105,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         backgroundView.layoutIfNeeded()
         collectionView.collectionViewLayout.invalidateLayout()
      }
+    
     override public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! MediaCell
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.tapCellImageAction(_:)))

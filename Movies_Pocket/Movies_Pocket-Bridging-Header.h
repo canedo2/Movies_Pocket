@@ -5,3 +5,4 @@
 #import "MBCircularProgressBarView.h"
 #import "MBCircularProgressBarLayer.h"
 #import "AboutViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>

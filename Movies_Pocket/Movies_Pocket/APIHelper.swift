@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class APIHelper {
     
@@ -89,10 +90,18 @@ class APIHelper {
     }
     
     /* GET IMAGE FROM URL AND ADD IT TO UIImageView */
-    class func getImage(image: UIImageView, imageString: String, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void){
+    class func getImage(imageView: UIImageView, imageString: String/*, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void*/){
+        
         let url = urlImagesString.appending(imageString)
         
-        let session = URLSession(configuration: .default)
+        imageView.setShowActivityIndicator(true)
+        imageView.setIndicatorStyle(.whiteLarge)
+        imageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "no-image"))
+        
+        
+        
+        
+        /*let session = URLSession(configuration: .default)
         let urlRequest = URLRequest(url: URL(string: url)!)
         
         let dataTask = session.dataTask(with: urlRequest) { (data, responseData, error) in
@@ -129,7 +138,7 @@ class APIHelper {
                 onCompletion()
             }
         }
-        dataTask.resume()
+        dataTask.resume()*/
      }
     
     class func getDetails(media: Media, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void){
