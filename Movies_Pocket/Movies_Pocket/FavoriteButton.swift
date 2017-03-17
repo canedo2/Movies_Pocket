@@ -9,7 +9,6 @@
 import UIKit
 
 class FavoriteButton: UIButton {
-
     var favorite = false
     
     func setFavorite (state: Bool){

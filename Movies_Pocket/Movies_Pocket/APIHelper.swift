@@ -141,6 +141,7 @@ class APIHelper {
         dataTask.resume()*/
      }
     
+    /*GET MEDIA DETAILS WHICH ARE SHOWN TO THE USER IN DETAILS VIEW */
     class func getDetails(media: Media, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void){
         
         let url: String;

@@ -15,6 +15,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var menuButtonWidth: NSLayoutConstraint!
     
     let gradient = CAGradientLayer()
     
@@ -25,7 +26,10 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //Do any additional setup after loading the view.
+        
+        //To move the menu button when keyboard appears
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
@@ -33,27 +37,28 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
         backgroundView.layer.insertSublayer(gradient, at: 0)
         
+        //Menu sizes depending on device
         if(UIDevice.current.userInterfaceIdiom == .pad){
             let menuConfiguration = FTConfiguration.shared
             menuConfiguration.menuWidth = self.view.frame.width/3
             menuConfiguration.textAlignment = .natural
             menuConfiguration.textFont = UIFont(name: "HelveticaNeue-Light", size: 30.0)!
+            menuButtonWidth.constant = 80
         }
         else{
             let menuConfiguration = FTConfiguration.shared
             menuConfiguration.menuWidth = self.view.frame.width*2/3
             menuConfiguration.textAlignment = .natural
             menuConfiguration.textFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)!
+            menuButtonWidth.constant = 50
         }
         
+        //To hide keyboard
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tapGR)
-    
     }
 
-    @objc func dismissKeyboard(){
-        self.view.endEditing(true)
-    }
+    
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -69,6 +74,10 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                 menuButton.frame.origin.y = self.view.frame.height - (menuButton.frame.height + menuButton.frame.height/2 )
                 menuButtonMoved = false
         }
+    }
+    
+    func dismissKeyboard(){
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,7 +150,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         
         sender.setBackgroundImage(UIImage.init(named: "menu-image-full"), for: .normal)    }
     
-    
+    //Allows the user to move the menu button
     @IBAction func panMenuButtonAction(_ sender: UIPanGestureRecognizer) {
         
         if (sender.view!.center.y + sender.translation(in: view).y) > (sender.view!.frame.height)

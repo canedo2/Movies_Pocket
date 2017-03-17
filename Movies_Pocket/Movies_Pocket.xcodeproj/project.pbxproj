@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27DE85F5F8001CC7FCBA9DAB /* Pods_Movies_Pocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CAEFFEEC0E7E93662BE8E2 /* Pods_Movies_Pocket.framework */; };
+		B330EE331E7B426400B6061A /* LabelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B330EE321E7B426400B6061A /* LabelGenerator.swift */; };
 		B34ADC451E7479A900D02CCF /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34ADC441E7479A900D02CCF /* FavoriteButton.swift */; };
 		B3950B3C1E788D8200A0340C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3950B3B1E788D8200A0340C /* AboutViewController.m */; };
 		B3A7C5281E67271700FCA51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5271E67271700FCA51F /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		87818C58FCF89E64A6196103 /* Pods-Movies_Pocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies_Pocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movies_Pocket/Pods-Movies_Pocket.release.xcconfig"; sourceTree = "<group>"; };
+		B330EE321E7B426400B6061A /* LabelGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelGenerator.swift; sourceTree = "<group>"; };
 		B34ADC441E7479A900D02CCF /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		B34ADC4A1E747F3200D02CCF /* Movies_Pocket-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies_Pocket-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3950B3A1E788D8200A0340C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -80,12 +82,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B34ADC461E7479B000D02CCF /* CustomizedInterfaceElements */ = {
+		B34ADC461E7479B000D02CCF /* Interface */ = {
 			isa = PBXGroup;
 			children = (
 				B34ADC441E7479A900D02CCF /* FavoriteButton.swift */,
+				B330EE321E7B426400B6061A /* LabelGenerator.swift */,
 			);
-			name = CustomizedInterfaceElements;
+			name = Interface;
 			sourceTree = "<group>";
 		};
 		B3950B3D1E78907B00A0340C /* AboutViewController */ = {
@@ -120,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B3ABD95F1E77029E005C9654 /* CoreDataClasses */,
-				B34ADC461E7479B000D02CCF /* CustomizedInterfaceElements */,
+				B34ADC461E7479B000D02CCF /* Interface */,
 				B3A7C5271E67271700FCA51F /* AppDelegate.swift */,
 				B3A7C54D1E6727E300FCA51F /* Storyboards */,
 				B3A7C54E1E67281F00FCA51F /* Helpers */,
@@ -330,6 +333,7 @@
 				B3E8C95D1E6DBA8B00DCC31D /* DetailsViewController.swift in Sources */,
 				B3A7C5461E67276F00FCA51F /* Media.swift in Sources */,
 				B3ABD95C1E76FDF9005C9654 /* CDModel.xcdatamodeld in Sources */,
+				B330EE331E7B426400B6061A /* LabelGenerator.swift in Sources */,
 				B3950B3C1E788D8200A0340C /* AboutViewController.m in Sources */,
 				B3A7C5481E67276F00FCA51F /* SearchViewController.swift in Sources */,
 				B3A7C5431E67276F00FCA51F /* CBVC+Protocols.swift in Sources */,

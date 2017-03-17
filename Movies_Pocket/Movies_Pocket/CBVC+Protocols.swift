@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate{
+    
+    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return  appDelegate!.model.foundItems.count
     }
@@ -60,11 +62,13 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    //MANAGE CELLS SIZE DEPENDING ON DEVICE AND ORIENTATION
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //PORTRAIT
+        
         let cv = collectionView
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         
+        //PORTRAIT
         var size: CGSize
         if(collectionView.frame.height > collectionView.frame.width){
             
@@ -80,7 +84,7 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
             }
             
         }
-            
+        //LANDSCAPE
         else{
             //IPAD LANDSCAPE CONF
             if(UIDevice.current.userInterfaceIdiom == .pad){
@@ -112,6 +116,7 @@ class MediaCell: UICollectionViewCell{
     @IBOutlet weak var overview: UILabel!
     @IBOutlet weak var favoriteButton : FavoriteButton!
     
+    //OPEN THE DETAILS VIEW CONTROLLER
     @IBAction func showDetails(_ sender: UIButton) {
         let cv = self.superview as! UICollectionView
         let indexPath = cv.indexPath(for: self)
@@ -147,6 +152,7 @@ class MediaCell: UICollectionViewCell{
         
     }
     
+    //ADDS/REMOVES THE ITEM FROM NON-VOLATILE STORAGE
     @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
 
         let cv = self.superview as! UICollectionView

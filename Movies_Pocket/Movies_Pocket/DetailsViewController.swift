@@ -14,14 +14,10 @@ class DetailsViewController: BaseViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleView: UILabel!
-    @IBOutlet weak var runtimeView: UILabel!
-    @IBOutlet weak var overviewView: UILabel!
-    @IBOutlet weak var genresView: UILabel!
-    @IBOutlet weak var companiesView: UILabel!
-    @IBOutlet weak var moreInfo: UILabel!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var favoriteButton: FavoriteButton!
     @IBOutlet weak var ratingView: MBCircularProgressBarView!
+    @IBOutlet weak var stackView: UIStackView!
     
     let gradient = CAGradientLayer()
     
@@ -35,91 +31,9 @@ class DetailsViewController: BaseViewController {
         
         self.media = appDelegate!.model.selectedMedia!
         
-        self.ratingView.value = 0.0
+        configureStaticContent()
         
-        APIHelper.getImage(imageView: imageView, imageString: media!.poster_path/*, onCompletion:{}, onError: {}*/)
-        titleView.text = media?.title
-        
-        if (media?.media_type == "movie"){
-            let duration = media?.details["runtime"] as? Int ?? 0
-            runtimeView.text = "\(duration)min"
-        }
-        else{
-            let duration = media?.details["episode_run_time"] as? [Int] ?? [0]
-            var total = 0
-            for value in duration {
-                total += value
-            }
-            
-            let count = total / duration.count
-            runtimeView.text = "\(count)min/capítulo (\(media?.details["number_of_episodes"] as! Int))"
-        }
-        
-        if media?.overview == "" {
-            overviewView.text = "No hay sinopsis disponible"
-            overviewView.textAlignment = .center
-        }
-        else{
-            overviewView.text = media?.overview
-        }
-        
-        let genres = media?.details["genres"]
-        
-        genresView.text = ""
-        if (genres?.count)! > 1 {
-            for genre in (genres as? NSArray ?? []){
-                let genreItem = genre as! [String:Any]
-                let genreName = genreItem["name"] as! String
-                genresView.text?.append(genreName)
-                genresView.text?.append(" ")
-            }
-        }
-        else{
-            genresView.text?.append("No hay géneros disponibles")
-        
-        }
-        
-        
-        let companies = media!.details["production_companies"]
-        
-        companiesView.text = ""
-        
-        if (companies?.count)! > 1{
-            var count = companies!.count - 1
-            for company in (companies as? NSArray ?? []){
-                let companyItem = company as! [String:Any]
-                let companyName = companyItem["name"] as! String
-                
-                companiesView.text?.append(companyName)
-                
-                count-=count;
-                if (count != 0){
-                    companiesView.text?.append("\n")
-                }
-            }
-        }
-        else{
-            companiesView.text?.append("No hay productoras disponibles")
-        }
-        
-        
-        moreInfo.text = ""
-        if(media?.media_type == "movie"){
-            if let date = media?.details["release_date"] as? String {
-                moreInfo.text?.append("Fecha de lanzamiento: \(date)")
-            }
-        }
-        else{
-            if let date = media?.details["first_air_date"] as? String {
-                moreInfo.text?.append("Fecha del primer episodio: \(date)")
-            }
-            if let lastDate = media?.details["last_air_date"] as? String {
-                moreInfo.text?.append("\nFecha del último episodio: \(lastDate)")
-            }
-            if let seasonsNumber = media?.details["number_of_seasons"] as? Int {
-                moreInfo.text?.append("\nNúmero de temporadas: \(seasonsNumber)")
-            }
-        }
+        fillStackView()
         
         favoriteButton.setFavorite(state: false)
         for favoriteMedia in (appDelegate?.storedFavoriteMedia)!{
@@ -161,6 +75,134 @@ class DetailsViewController: BaseViewController {
             sender.setFavorite(state: true)
             CoreDataHelper.saveMedia(media: media!)
         }
+    }
+    
+    func configureStaticContent(){
+        titleView.text = media?.title
+        self.ratingView.value = 0.0
+        APIHelper.getImage(imageView: imageView, imageString: media!.poster_path/*, onCompletion:{}, onError: {}*/)
+    
+    }
+    
+    func fillStackView(){
+        
+        stackView.spacing = 8.0
+        
+        //OVERVIEW - TITLE
+        let overviewTitleLabel = LabelGenerator.createTitleLabel(string: "Sinopsis")
+        stackView.addArrangedSubview(overviewTitleLabel)
+        
+        //OVERVIEW - TEXT
+        let overviewTextLabel: UILabel
+        if media?.overview == "" {
+            overviewTextLabel = LabelGenerator.createTextLabel(string: "No hay sinopsis disponible", textAlignment: .center, textColor: nil)
+        }
+        else{
+            overviewTextLabel = LabelGenerator.createTextLabel(string: media?.overview, textAlignment: .justified, textColor: nil)
+        }
+        stackView.addArrangedSubview(overviewTextLabel)
+        
+        //DURATION
+        let runtimeLabel: UILabel
+        if (media?.media_type == "movie"){
+            let duration = media?.details["runtime"] as? Int ?? 0
+            runtimeLabel = LabelGenerator.createTitleLabel(string: "\(duration)min")
+            runtimeLabel.textColor = UIColor.yellow
+            runtimeLabel.font = UIFont.italicSystemFont(ofSize: 20)
+        }
+        else if(media?.media_type == "tv"){
+            let duration = media?.details["episode_run_time"] as? [Int] ?? [0]
+            var total = 0
+            for value in duration {
+                total += value
+            }
+            let count = total / duration.count
+            runtimeLabel = LabelGenerator.createTitleLabel(string: "\(count)min/capítulo (\(media?.details["number_of_episodes"] as! Int))")
+            runtimeLabel.textColor = UIColor.yellow
+            runtimeLabel.font = UIFont.italicSystemFont(ofSize: 20)
+        }
+        else{
+            runtimeLabel = LabelGenerator.createTitleLabel(string: "No hay información sobre la duración")
+            runtimeLabel.textColor = UIColor.yellow
+            runtimeLabel.font = UIFont.italicSystemFont(ofSize: 20)
+        }
+        stackView.addArrangedSubview(runtimeLabel)
+        
+        //GENRES - TITLE
+        let genresTitleLabel = LabelGenerator.createTitleLabel(string: "Géneros")
+        stackView.addArrangedSubview(genresTitleLabel)
+        
+        
+        //GENRES - TEXT
+        let genres = media?.details["genres"]
+        
+        let genresTextLabel = LabelGenerator.createTextLabel(string: "", textAlignment: .center, textColor: nil)
+        
+        if (genres?.count)! > 1 {
+            for genre in (genres as? NSArray ?? []){
+                let genreItem = genre as! [String:Any]
+                let genreName = genreItem["name"] as! String
+                genresTextLabel.text?.append(genreName)
+                genresTextLabel.text?.append(" ")
+            }
+        }
+        else{
+            genresTextLabel.text?.append("No hay géneros disponibles")
+            
+        }
+        stackView.addArrangedSubview(genresTextLabel)
+        
+        //COMPANIES - TITLE
+        let companiesTitleLabel = LabelGenerator.createTitleLabel(string: "Productoras")
+        stackView.addArrangedSubview(companiesTitleLabel)
+        
+        //COMPANIES - TEXT
+        let companies = media!.details["production_companies"]
+        
+        let companiesTextLabel = LabelGenerator.createTextLabel(string: "", textAlignment: .center, textColor: nil)
+        if (companies?.count)! > 1{
+            var count = companies!.count - 1
+            for company in (companies as? NSArray ?? []){
+                let companyItem = company as! [String:Any]
+                let companyName = companyItem["name"] as! String
+                
+                companiesTextLabel.text?.append(companyName)
+                
+                count-=count;
+                if (count != 0){
+                    companiesTextLabel.text?.append("\n")
+                }
+            }
+        }
+        else{
+            companiesTextLabel.text?.append("No hay productoras disponibles")
+        }
+        stackView.addArrangedSubview(companiesTextLabel)
+        
+        //MORE INFO - TITLE
+        let moreInfoTitleLabel = LabelGenerator.createTitleLabel(string: "Más información")
+        stackView.addArrangedSubview(moreInfoTitleLabel)
+        
+        //MORE INFO - TEXT
+        let moreInfoTextLabel = LabelGenerator.createTextLabel(string: "", textAlignment: .center, textColor: nil)
+        
+        if(media?.media_type == "movie"){
+            if let date = media?.details["release_date"] as? String {
+                moreInfoTextLabel.text?.append("Fecha de lanzamiento: \(date)")
+            }
+        }
+        else{
+            if let date = media?.details["first_air_date"] as? String {
+                moreInfoTextLabel.text?.append("Fecha del primer episodio: \(date)")
+            }
+            if let lastDate = media?.details["last_air_date"] as? String {
+                moreInfoTextLabel.text?.append("\nFecha del último episodio: \(lastDate)")
+            }
+            if let seasonsNumber = media?.details["number_of_seasons"] as? Int {
+                moreInfoTextLabel.text?.append("\nNúmero de temporadas: \(seasonsNumber)")
+            }
+        }
+        stackView.addArrangedSubview(moreInfoTextLabel)
     }
     
 }
