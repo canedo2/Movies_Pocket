@@ -106,9 +106,12 @@ class DetailsViewController: BaseViewController {
         let runtimeLabel: UILabel
         if (media?.media_type == "movie"){
             let duration = media?.details["runtime"] as? Int ?? 0
-            runtimeLabel = LabelGenerator.createTitleLabel(string: "\(duration)min")
-            runtimeLabel.textColor = UIColor.yellow
-            runtimeLabel.font = UIFont.italicSystemFont(ofSize: 20)
+            if( duration != 0){
+                runtimeLabel = LabelGenerator.createTextLabel(string: "\(duration)min", textAlignment: .center, textColor: UIColor.yellow)
+            }
+            else{
+                runtimeLabel = LabelGenerator.createTextLabel(string: "No hay información sobre los capítulos", textAlignment: .center, textColor: UIColor.yellow)
+            }
         }
         else if(media?.media_type == "tv"){
             let duration = media?.details["episode_run_time"] as? [Int] ?? [0]
@@ -116,10 +119,15 @@ class DetailsViewController: BaseViewController {
             for value in duration {
                 total += value
             }
-            let count = total / duration.count
-            runtimeLabel = LabelGenerator.createTitleLabel(string: "\(count)min/capítulo (\(media?.details["number_of_episodes"] as! Int))")
-            runtimeLabel.textColor = UIColor.yellow
-            runtimeLabel.font = UIFont.italicSystemFont(ofSize: 20)
+            print(total)
+            print(duration.count)
+            if(duration.count != 0 ){
+                let count = total / duration.count
+                runtimeLabel = LabelGenerator.createTextLabel(string: "\(count)min/capítulo (\(media?.details["number_of_episodes"] as! Int))", textAlignment: .center, textColor: UIColor.yellow)
+            }
+            else {
+                runtimeLabel = LabelGenerator.createTextLabel(string: "No hay información sobre la duración de los capítulos", textAlignment: .center, textColor: UIColor.yellow)
+            }
         }
         else{
             runtimeLabel = LabelGenerator.createTitleLabel(string: "No hay información sobre la duración")
@@ -142,8 +150,9 @@ class DetailsViewController: BaseViewController {
             for genre in (genres as? NSArray ?? []){
                 let genreItem = genre as! [String:Any]
                 let genreName = genreItem["name"] as! String
-                genresTextLabel.text?.append(genreName)
+                genresTextLabel.text?.append(genreName.uppercased())
                 genresTextLabel.text?.append(" ")
+                genresTextLabel.textColor = UIColor(colorLiteralRed: 1, green: 153.0/255.0, blue: 204.0/255.0, alpha: 1)
             }
         }
         else{
@@ -167,11 +176,10 @@ class DetailsViewController: BaseViewController {
                 let companyName = companyItem["name"] as! String
                 
                 companiesTextLabel.text?.append(companyName)
-                
-                count-=count;
                 if (count != 0){
                     companiesTextLabel.text?.append("\n")
                 }
+                count-=1;
             }
         }
         else{
@@ -188,15 +196,27 @@ class DetailsViewController: BaseViewController {
         
         if(media?.media_type == "movie"){
             if let date = media?.details["release_date"] as? String {
-                moreInfoTextLabel.text?.append("Fecha de lanzamiento: \(date)")
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let nsdate = dateFormatter.date(from: date)
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                moreInfoTextLabel.text?.append("Fecha de lanzamiento: \(dateFormatter.string(from: nsdate!))")
             }
         }
         else{
             if let date = media?.details["first_air_date"] as? String {
-                moreInfoTextLabel.text?.append("Fecha del primer episodio: \(date)")
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let nsdate = dateFormatter.date(from: date)
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                moreInfoTextLabel.text?.append("Fecha del primer episodio: \(dateFormatter.string(from: nsdate!))")
             }
             if let lastDate = media?.details["last_air_date"] as? String {
-                moreInfoTextLabel.text?.append("\nFecha del último episodio: \(lastDate)")
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let nsdate = dateFormatter.date(from: lastDate)
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                moreInfoTextLabel.text?.append("\nFecha del último episodio: \(dateFormatter.string(from: nsdate!))")
             }
             if let seasonsNumber = media?.details["number_of_seasons"] as? Int {
                 moreInfoTextLabel.text?.append("\nNúmero de temporadas: \(seasonsNumber)")

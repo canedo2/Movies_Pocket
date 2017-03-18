@@ -465,6 +465,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9C2ADA85342EEB0DD4FEF15 /* Pods-Movies_Pocket.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = A5UCFNWB8C;
@@ -483,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87818C58FCF89E64A6196103 /* Pods-Movies_Pocket.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = A5UCFNWB8C;

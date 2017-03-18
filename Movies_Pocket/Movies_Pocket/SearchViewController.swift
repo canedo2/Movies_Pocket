@@ -23,6 +23,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     var menuButtonMoved = false
     var menuOptionNameArray : [String] = ["Favoritos","Novedades","About"]
     var menuOptionImageNameArray : [String] = ["favorite-menu-icon","news","about-us"]
+    var alreadySearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView)
+        APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView, onCompletion:{})
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
         backgroundView.layer.insertSublayer(gradient, at: 0)
         
@@ -62,7 +63,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if menuButton.frame.origin.y > (self.view.frame.height - keyboardSize.height) {
+            if menuButton.frame.origin.y > (self.view.frame.height - keyboardSize.height - menuButton.frame.height) {
                 menuButton.frame.origin.y = self.view.frame.height - (keyboardSize.height + menuButton.frame.height + menuButton.frame.height/2 )
                 menuButtonMoved = true
             }
@@ -101,8 +102,9 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //Get more pages if showing news
-        if (((scrollView.contentOffset.y + scrollView.frame.size.height) / scrollView.contentSize.height > 0.98) && showingNowPlaying){
-            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView)
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) / scrollView.contentSize.height > 0.95) && showingNowPlaying && !alreadySearching){
+            alreadySearching = true
+            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView, onCompletion: {self.alreadySearching = false})
         }
     }
     
@@ -137,7 +139,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                 self.showingNowPlaying = true
                 self.appDelegate?.model.foundItems = []
                 self.collectionView.reloadData()
-                APIHelper.getNowPlaying(page: 1, updatingCollectionView: self.collectionView)
+                APIHelper.getNowPlaying(page: 1, updatingCollectionView: self.collectionView, onCompletion: {})
                 break;
             case 2:
                 self.performSegue(withIdentifier: "AboutSegue", sender: self)

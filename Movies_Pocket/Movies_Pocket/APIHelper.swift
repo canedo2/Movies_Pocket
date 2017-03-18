@@ -49,7 +49,7 @@ class APIHelper {
     }
     
     /*GET /MOVIE/NOW_PLAYING REQUEST */
-    class func getNowPlaying(page: Int,updatingCollectionView cv: UICollectionView?){
+    class func getNowPlaying(page: Int, updatingCollectionView cv: UICollectionView?, onCompletion: @escaping (Void) -> Void){
         let url = urlNowPlayingString.appending("\(page)");
         
         let session = URLSession(configuration: .default)
@@ -83,6 +83,7 @@ class APIHelper {
                 }
                 
                 cv?.insertItems(at:indexPaths)
+                onCompletion()
             }
         }
         dataTask.resume()

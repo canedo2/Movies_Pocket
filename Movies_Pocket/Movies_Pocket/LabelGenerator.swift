@@ -40,7 +40,7 @@ class LabelGenerator {
             label.font = UIFont.systemFont(ofSize: 25)
         }
         else{
-            label.font = UIFont.systemFont(ofSize: 18)
+            label.font = UIFont.systemFont(ofSize: 16)
         }
         label.textAlignment = textAlignment
         
