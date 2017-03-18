@@ -476,7 +476,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hii-PS-OxX">
-                                                <rect key="frame" x="68" y="0.0" width="203" height="40"/>
+                                                <rect key="frame" x="68" y="0.0" width="184" height="40"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.99607473609999997" green="0.9922029376" blue="0.99199241400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -491,8 +491,8 @@
                                             <constraint firstItem="ukS-WV-Zmx" firstAttribute="leading" secondItem="TmU-V3-6x2" secondAttribute="leading" constant="8" id="Keg-La-QkI"/>
                                             <constraint firstAttribute="trailing" secondItem="pWF-9b-PZH" secondAttribute="trailing" constant="8" id="Nzb-NK-kS9"/>
                                             <constraint firstAttribute="bottom" secondItem="ukS-WV-Zmx" secondAttribute="bottom" id="PH4-sl-wuk"/>
-                                            <constraint firstItem="pWF-9b-PZH" firstAttribute="leading" secondItem="hii-PS-OxX" secondAttribute="trailing" constant="8" id="b0R-at-mmW"/>
                                             <constraint firstAttribute="height" constant="40" id="kyh-YF-MQT"/>
+                                            <constraint firstAttribute="trailing" secondItem="hii-PS-OxX" secondAttribute="trailing" constant="68" id="lpS-Mq-NJV"/>
                                             <constraint firstItem="hii-PS-OxX" firstAttribute="top" secondItem="TmU-V3-6x2" secondAttribute="top" id="yKD-oN-Ti6"/>
                                             <constraint firstItem="pWF-9b-PZH" firstAttribute="top" secondItem="TmU-V3-6x2" secondAttribute="top" constant="3" id="ypq-Ff-O7f"/>
                                         </constraints>
@@ -533,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waJ-AP-get" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014.2578124999999" y="-332.06442166910688"/>
+            <point key="canvasLocation" x="1012.5" y="-332.5"/>
         </scene>
         <!--Cinemas View Controller-->
         <scene sceneID="b8O-PE-dTK">

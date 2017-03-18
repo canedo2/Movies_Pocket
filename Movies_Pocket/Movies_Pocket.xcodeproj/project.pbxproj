@@ -87,13 +87,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B34ADC461E7479B000D02CCF /* Interface */ = {
+		B34ADC461E7479B000D02CCF /* InterfaceUtils */ = {
 			isa = PBXGroup;
 			children = (
 				B34ADC441E7479A900D02CCF /* FavoriteButton.swift */,
 				B330EE321E7B426400B6061A /* LabelGenerator.swift */,
 			);
-			name = Interface;
+			name = InterfaceUtils;
 			sourceTree = "<group>";
 		};
 		B3950B3D1E78907B00A0340C /* AboutViewController */ = {
@@ -128,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				B3ABD95F1E77029E005C9654 /* CoreDataClasses */,
-				B34ADC461E7479B000D02CCF /* Interface */,
+				B34ADC461E7479B000D02CCF /* InterfaceUtils */,
 				B3A7C5271E67271700FCA51F /* AppDelegate.swift */,
 				B3A7C54D1E6727E300FCA51F /* Storyboards */,
 				B3A7C54E1E67281F00FCA51F /* Helpers */,
