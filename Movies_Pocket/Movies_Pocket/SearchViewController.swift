@@ -17,12 +17,10 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var menuButtonWidth: NSLayoutConstraint!
     
-    let gradient = CAGradientLayer()
-    
     var showingNowPlaying = true
     var menuButtonMoved = false
-    var menuOptionNameArray : [String] = ["Favoritos","Novedades","About"]
-    var menuOptionImageNameArray : [String] = ["favorite-menu-icon","news","about-us"]
+    var menuOptionNameArray : [String] = ["Favoritos","Novedades","Cines cercanos","About"]
+    var menuOptionImageNameArray : [String] = ["favorite-menu-icon","news","map-icon","about-us"]
     var alreadySearching = false
     
     override func viewDidLoad() {
@@ -37,6 +35,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView, onCompletion:{})
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
         backgroundView.layer.insertSublayer(gradient, at: 0)
+        
         
         //Menu sizes depending on device
         if(UIDevice.current.userInterfaceIdiom == .pad){
@@ -110,9 +109,6 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        gradient.frame = view.bounds
-        
         backgroundView.layoutIfNeeded()
         collectionView.collectionViewLayout.invalidateLayout()
      }
@@ -142,6 +138,8 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                 APIHelper.getNowPlaying(page: 1, updatingCollectionView: self.collectionView, onCompletion: {})
                 break;
             case 2:
+                self.performSegue(withIdentifier: "CinemaSegue", sender: self)
+            case 3:
                 self.performSegue(withIdentifier: "AboutSegue", sender: self)
                 break;
             default:break;

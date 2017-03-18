@@ -19,17 +19,12 @@ class DetailsViewController: BaseViewController {
     @IBOutlet weak var ratingView: MBCircularProgressBarView!
     @IBOutlet weak var stackView: UIStackView!
     
-    let gradient = CAGradientLayer()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
-        backgroundView.layer.insertSublayer(gradient, at: 0)
-        
         self.media = appDelegate!.model.selectedMedia!
+        backgroundView.layer.insertSublayer(gradient, at: 0)
         
         configureStaticContent()
         
@@ -52,11 +47,6 @@ class DetailsViewController: BaseViewController {
     @IBAction func backAction(_ sender: Any) {
         previousCollectionView?.reloadData()
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        gradient.frame = view.bounds
     }
     
     override func viewDidAppear(_ animated: Bool) {
