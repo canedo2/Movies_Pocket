@@ -49,7 +49,7 @@ class APIHelper {
     }
     
     /*GET /MOVIE/NOW_PLAYING REQUEST */
-    class func getNowPlaying(page: Int, updatingCollectionView cv: UICollectionView?, onCompletion: @escaping (Void) -> Void){
+    class func getNowPlaying(page: Int, updatingCollectionView cv: UICollectionView?, onCompletion: @escaping (Void) -> Void, storageManager: APIHelperNowPlayingDelegate){
         let url = urlNowPlayingString.appending("\(page)");
         
         let session = URLSession(configuration: .default)
@@ -74,15 +74,7 @@ class APIHelper {
             let media = items as? [Media] ?? []
             
             DispatchQueue.main.async {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let numberOfItems = appDelegate.model.foundItems.count
-                appDelegate.model.foundItems.append(contentsOf: media)
-                var indexPaths:[IndexPath] = []
-                for index in numberOfItems..<appDelegate.model.foundItems.count{
-                    indexPaths.append(IndexPath(row: index, section: 0))
-                }
-                
-                cv?.insertItems(at:indexPaths)
+                storageManager.setMediaPage(mediaArray: media)
                 onCompletion()
             }
         }
@@ -153,8 +145,8 @@ class APIHelper {
         
     }
     
-    //TODO: CREATE PROTOCOL
-    class func getTrailer(media: Media, controller: DetailsViewController){
+    //GET MOVIE TRAILER (Requires GetYouTubeInfoProtocol)
+    class func getTrailer(media: Media, controller: APIHelperYouTubeInfoDelegate){
         let url = urlMovieDetails.appending("\(media.id)/videos?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES");
         
         let session = URLSession(configuration: .default)
@@ -180,8 +172,7 @@ class APIHelper {
                 }
                 let result = (results["results"] as! [Any])[0] as! [String:Any]
                 if (result["site"] as! String).compare("YouTube") == ComparisonResult.orderedSame {
-                    controller.videoData = result
-                    controller.showVideo()
+                    controller.setVideo(info: result)
                 }
             }
         }
@@ -262,7 +253,6 @@ class APIHelper {
     }
     
     /*CONVERTS FROM DICTIONARY TO ITEMS USING THE FUNCTION ABOVE*/
-    
     class func convertToItemsArray(array: [[String:AnyObject]]) -> [Any]{
         var items = [Any]()
         for i in array{
@@ -274,8 +264,17 @@ class APIHelper {
         }
         return items
     }
-    
-    
-    
-    
+}
+
+//PROTOCOLS REQUIRED FOR SOME METHODS
+protocol APIHelperYouTubeInfoDelegate{
+    func setVideo(info:[String:Any])
+}
+
+protocol APIHelperNowPlayingDelegate{
+    func setMediaPage(mediaArray: [Media])
+}
+
+protocol APIHelperSearchDelegate{
+    func setMediaSearch(mediaArray:[Media])
 }

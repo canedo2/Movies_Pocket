@@ -36,17 +36,21 @@ class LabelGenerator {
         else{
             label.textColor = textColor
         }
-        if(UIDevice.current.userInterfaceIdiom == .pad){
-            label.font = UIFont.systemFont(ofSize: 25)
-        }
-        else{
-            label.font = UIFont.systemFont(ofSize: 16)
-        }
-        label.textAlignment = textAlignment
         
+        label.font = getSystemFontForThisDevice()
+        label.textAlignment = textAlignment
         label.text = string ?? ""
         
         return label
+    }
+    
+    class func getSystemFontForThisDevice() -> UIFont{
+        if(UIDevice.current.userInterfaceIdiom == .pad){
+            return UIFont.systemFont(ofSize: 25)
+        }
+        else{
+            return UIFont.systemFont(ofSize: 16)
+        }
     }
 
 }

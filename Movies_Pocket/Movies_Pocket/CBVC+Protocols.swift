@@ -11,7 +11,6 @@ import UIKit
 
 extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate{
     
-    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return  appDelegate!.model.foundItems.count
     }
@@ -156,3 +155,4 @@ class MediaCell: UICollectionViewCell{
     }
     
 }
+

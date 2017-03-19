@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: BaseViewController {
+class DetailsViewController: BaseViewController, APIHelperYouTubeInfoDelegate {
     var media: Media?
     var previousCollectionView: UICollectionView?
     
@@ -223,20 +223,22 @@ class DetailsViewController: BaseViewController {
         stackView.addArrangedSubview(moreInfoTextLabel)
     }
     
-    func openYoutube(){
+    @objc func openYoutube(){
         UIApplication.shared.open(URL(string:"https://www.youtube.com/watch?v=\(videoData["key"]!)")!, options: [:], completionHandler: nil)
     }
     
-    func showVideo(){
+    func setVideo(info: [String : Any]) {
         
         let button = UIButton()
-    
+        self.videoData = info
+        button.titleLabel?.font = LabelGenerator.getSystemFontForThisDevice()
         button.setTitle("Ver trailer en YouTube", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.setImage(UIImage(named: "youtube-icon"), for: .normal)
         button.addTarget(self, action: #selector(self.openYoutube), for: UIControlEvents.touchUpInside)
         
         stackView.addArrangedSubview(button)
+        
     }
     
     

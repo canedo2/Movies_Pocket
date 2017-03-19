@@ -9,7 +9,7 @@
 import UIKit
 import FTPopOverMenu_Swift
 
-class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
+class SearchViewController: CollectionBaseViewController, UISearchBarDelegate, APIHelperSearchDelegate, APIHelperNowPlayingDelegate {
 
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -32,7 +32,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView, onCompletion:{})
+        APIHelper.getNowPlaying(page: 1, updatingCollectionView: collectionView, onCompletion:{}, storageManager: self)
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
         backgroundView.layer.insertSublayer(gradient, at: 0)
         
@@ -103,7 +103,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         //Get more pages if showing news
         if (((scrollView.contentOffset.y + scrollView.frame.size.height) / scrollView.contentSize.height > 0.95) && showingNowPlaying && !alreadySearching){
             alreadySearching = true
-            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView, onCompletion: {self.alreadySearching = false})
+            APIHelper.getNowPlaying(page: appDelegate!.model.foundItems.count/20 + 1, updatingCollectionView: collectionView, onCompletion: {self.alreadySearching = false}, storageManager: self)
         }
     }
     
@@ -141,7 +141,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                 self.showingNowPlaying = true
                 self.appDelegate?.model.foundItems = []
                 self.collectionView.reloadData()
-                APIHelper.getNowPlaying(page: 1, updatingCollectionView: self.collectionView, onCompletion: {})
+                APIHelper.getNowPlaying(page: 1, updatingCollectionView: self.collectionView, onCompletion: {},storageManager: self)
                 break;
             case 2:
                 self.performSegue(withIdentifier: "CinemaSegue", sender: self)
@@ -199,4 +199,25 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                                 let alert = AlertHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
                                 self.present(alert, animated: true, completion: nil)
         })
-    }}
+    }
+    
+    func setMediaPage(mediaArray: [Media]){
+        
+        var numberOfItems = appDelegate!.model.foundItems.count
+        appDelegate?.model.foundItems.append(contentsOf: mediaArray)
+        
+        var indexPaths:[IndexPath] = []
+        while numberOfItems < (appDelegate?.model.foundItems.count)!{
+            indexPaths.append(IndexPath(row: numberOfItems, section: 0))
+            numberOfItems+=1
+        }
+        collectionView.insertItems(at:indexPaths)
+    }
+    
+    func setMediaSearch(mediaArray: [Media]) {
+        appDelegate?.model.foundItems = mediaArray
+        collectionView.reloadData()
+        
+    }
+    
+}

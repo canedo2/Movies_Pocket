@@ -12,6 +12,7 @@
 		B3318EAA1E7DBD0900CC2E39 /* CinemasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3318EA91E7DBD0900CC2E39 /* CinemasViewController.swift */; };
 		B3318EAC1E7DC1FC00CC2E39 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3318EAB1E7DC1FC00CC2E39 /* MapKit.framework */; };
 		B34ADC451E7479A900D02CCF /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34ADC441E7479A900D02CCF /* FavoriteButton.swift */; };
+		B36D0F5A1E7F422200906C4E /* MoviesPocket.png in Resources */ = {isa = PBXBuildFile; fileRef = B36D0F591E7F422200906C4E /* MoviesPocket.png */; };
 		B3950B3C1E788D8200A0340C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3950B3B1E788D8200A0340C /* AboutViewController.m */; };
 		B3A7C5281E67271700FCA51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C5271E67271700FCA51F /* AppDelegate.swift */; };
 		B3A7C52D1E67271700FCA51F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A7C52B1E67271700FCA51F /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		B3318EAB1E7DC1FC00CC2E39 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B34ADC441E7479A900D02CCF /* FavoriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		B34ADC4A1E747F3200D02CCF /* Movies_Pocket-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies_Pocket-Bridging-Header.h"; sourceTree = "<group>"; };
+		B36D0F591E7F422200906C4E /* MoviesPocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoviesPocket.png; sourceTree = "<group>"; };
 		B3950B3A1E788D8200A0340C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		B3950B3B1E788D8200A0340C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		B3A7C5241E67271700FCA51F /* Movies_Pocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies_Pocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 				B3ABD95F1E77029E005C9654 /* CoreDataClasses */,
 				B3A7C54E1E67281F00FCA51F /* Utils */,
 				B3A7C52E1E67271700FCA51F /* m.xcassets */,
+				B36D0F591E7F422200906C4E /* MoviesPocket.png */,
 				B3A7C5331E67271700FCA51F /* Info.plist */,
 				B3ABD95A1E76FDF9005C9654 /* CDModel.xcdatamodeld */,
 			);
@@ -270,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36D0F5A1E7F422200906C4E /* MoviesPocket.png in Resources */,
 				B3A7C5321E67271700FCA51F /* LaunchScreen.storyboard in Resources */,
 				B3A7C52F1E67271700FCA51F /* m.xcassets in Resources */,
 				B3A7C52D1E67271700FCA51F /* Main.storyboard in Resources */,
