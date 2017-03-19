@@ -66,7 +66,10 @@ class CinemasViewController: BaseViewController, MKMapViewDelegate, CLLocationMa
                     })
                 
                 if (!alreadyInAnnotations){
-                self.mapView.addAnnotation(item.placemark)
+                    let cinemaAnnotation = CinemaPin(lat: item.placemark.coordinate.latitude, long: item.placemark.coordinate.longitude)
+                    cinemaAnnotation.title = item.placemark.name
+                    cinemaAnnotation.subtitle = item.placemark.title
+                self.mapView.addAnnotation(cinemaAnnotation)
                 }
                 
             }
@@ -86,4 +89,23 @@ class CinemasViewController: BaseViewController, MKMapViewDelegate, CLLocationMa
     @IBAction func showInGoogleMaps(_ sender: UIButton) {
         UIApplication.shared.open(URL(string:"https://www.google.es/maps/search/cinemas/")!, options: [:], completionHandler: nil)
     }
+}
+
+class CinemaPin: NSObject, MKAnnotation {
+    
+    var title : String?
+    var subtitle : String?
+    var latitude : Double
+    var longitude : Double
+    
+    var coordinate : CLLocationCoordinate2D {
+        
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    init(lat: Double, long: Double){
+        self.latitude = lat
+        self.longitude = long
+    }
+    
 }

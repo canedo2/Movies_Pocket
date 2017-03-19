@@ -91,7 +91,7 @@ class APIHelper {
     }
     
     /* GET IMAGE FROM URL AND ADD IT TO UIImageView */
-    class func getImage(imageView: UIImageView, imageString: String/*, onCompletion: @escaping (Void) -> Void, onError: @escaping (Void) -> Void*/){
+    class func getImage(imageView: UIImageView, imageString: String){
         
         let url = urlImagesString.appending(imageString)
         
@@ -99,47 +99,6 @@ class APIHelper {
         imageView.setIndicatorStyle(.whiteLarge)
         imageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "no-image"))
         
-        
-        
-        
-        /*let session = URLSession(configuration: .default)
-        let urlRequest = URLRequest(url: URL(string: url)!)
-        
-        let dataTask = session.dataTask(with: urlRequest) { (data, responseData, error) in
-            guard error == nil else {
-                print("\(error) -> Error in dataTask: Couldn't generate the UIImage")
-                DispatchQueue.main.async {
-                    image.image = UIImage(named: "no-image")
-                    onError()
-                }
-                return
-            }
-            
-            // make sure we got data
-            guard let responseData = data else {
-                print("Error: did not receive data")
-                DispatchQueue.main.async {
-                    image.image = UIImage(named: "no-image")
-                    onError()
-                }
-                return
-            }
-            
-            guard let imageToShow = UIImage.init(data: responseData) else{
-                print("Error: Couldn't generate the UIImage")
-                DispatchQueue.main.async {
-                    image.image = UIImage(named: "no-image")
-                    onError()
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                image.image = imageToShow
-                onCompletion()
-            }
-        }
-        dataTask.resume()*/
      }
     
     /*GET MEDIA DETAILS WHICH ARE SHOWN TO THE USER IN DETAILS VIEW */
@@ -261,7 +220,7 @@ class APIHelper {
                             details: [:])
         }
         
-        //ELSE PERSON NOT IMPLEMENTED
+        //ELSE PERSON, MOVIE... (NOT IMPLEMENTED)
         
         return item
     }

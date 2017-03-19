@@ -23,26 +23,8 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
         
         let item = appDelegate!.model.foundItems[indexPath.row]
         
-        
-        /*let loadingView: UIView
-        let activityIndicator: UIActivityIndicatorView
-        
-        (loadingView,activityIndicator) = InterfaceHelper.createImageLoadingView(image: cell.image)
-        
-        activityIndicator.startAnimating()
-        cell.image.addSubview(loadingView)*/
-        
         APIHelper.getImage(imageView: cell.image,
-                           imageString: item.poster_path/*,
-                           onCompletion:{
-                            activityIndicator.stopAnimating()
-                            loadingView.removeFromSuperview()
-        },
-                           onError:{
-                            activityIndicator.stopAnimating()
-                            loadingView.removeFromSuperview()
-        
-        }*/)
+                           imageString: item.poster_path)
         
         cell.title.text = item.title
         if item.overview == "" {

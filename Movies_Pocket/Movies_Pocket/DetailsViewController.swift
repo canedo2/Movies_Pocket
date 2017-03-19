@@ -94,13 +94,14 @@ class DetailsViewController: BaseViewController {
         
         //DURATION
         let runtimeLabel: UILabel
+        print(media!.media_type)
         if (media?.media_type == "movie"){
             let duration = media?.details["runtime"] as? Int ?? 0
             if( duration != 0){
                 runtimeLabel = LabelGenerator.createTextLabel(string: "\(duration)min", textAlignment: .center, textColor: UIColor.yellow)
             }
             else{
-                runtimeLabel = LabelGenerator.createTextLabel(string: "No hay información sobre los capítulos", textAlignment: .center, textColor: UIColor.yellow)
+                runtimeLabel = LabelGenerator.createTextLabel(string: "No hay información sobre su duración", textAlignment: .center, textColor: UIColor.yellow)
             }
         }
         else if(media?.media_type == "tv"){
