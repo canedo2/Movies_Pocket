@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class InterfaceHelper {
+class AlertHelper {
     
     class func createLoadingView() -> (UIView,UIActivityIndicatorView){
         

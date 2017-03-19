@@ -128,6 +128,12 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
             case 0:
                 self.showingNowPlaying = false
                 let mediaArray = Media.createMediaArrayFrom(mediaEntityArray: self.appDelegate?.storedFavoriteMedia ?? [])
+                //Do not allow user to filter by favorite
+                if mediaArray.count == 0 {
+                   let alert = AlertHelper.createInfoAlert(title: "¡No tienes favoritos!", text: "Usa el icono de la estrella para guardar elementos en tus favoritos.")
+                    self.present(alert, animated: true, completion: nil)
+                    break
+                }
                 self.appDelegate?.model.foundItems = mediaArray
                 self.collectionView.reloadData()
                 break;
@@ -174,7 +180,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
         
         let loadingView: UIView
         let activityIndicator: UIActivityIndicatorView
-        (loadingView,activityIndicator) = InterfaceHelper.createLoadingView()
+        (loadingView,activityIndicator) = AlertHelper.createLoadingView()
         
         view.addSubview(loadingView)
         activityIndicator.startAnimating()
@@ -190,7 +196,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate {
                                 activityIndicator.stopAnimating()
                                 loadingView.removeFromSuperview()
                                 //Show error
-                                let alert = InterfaceHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
+                                let alert = AlertHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
                                 self.present(alert, animated: true, completion: nil)
         })
     }}

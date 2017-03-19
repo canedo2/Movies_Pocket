@@ -110,7 +110,7 @@ class MediaCell: UICollectionViewCell{
         
         let loadingView: UIView
         let activityIndicator: UIActivityIndicatorView
-        (loadingView,activityIndicator) = InterfaceHelper.createLoadingView()
+        (loadingView,activityIndicator) = AlertHelper.createLoadingView()
         
         collectionViewController.view.addSubview(loadingView)
         activityIndicator.startAnimating()
@@ -127,7 +127,7 @@ class MediaCell: UICollectionViewCell{
                                     activityIndicator.stopAnimating()
                                     loadingView.removeFromSuperview()
                                     //Show error
-                                    let alert = InterfaceHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
+                                    let alert = AlertHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
                                     collectionViewController.present(alert, animated: true, completion: nil)
                                 
         })

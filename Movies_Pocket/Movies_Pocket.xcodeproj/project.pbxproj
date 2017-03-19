@@ -28,7 +28,7 @@
 		B3ABD95E1E770061005C9654 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ABD95D1E770061005C9654 /* CoreData.framework */; };
 		B3ABD9611E770348005C9654 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABD9601E770348005C9654 /* CoreDataStack.swift */; };
 		B3ABD96B1E7712D2005C9654 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ABD96A1E7712D2005C9654 /* CoreDataHelper.swift */; };
-		B3BF65521E6F2927008B06CC /* InterfaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */; };
+		B3BF65521E6F2927008B06CC /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF65511E6F2927008B06CC /* AlertHelper.swift */; };
 		B3E8C95D1E6DBA8B00DCC31D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +58,7 @@
 		B3ABD95D1E770061005C9654 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B3ABD9601E770348005C9654 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B3ABD96A1E7712D2005C9654 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceHelper.swift; sourceTree = "<group>"; };
+		B3BF65511E6F2927008B06CC /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B6CAEFFEEC0E7E93662BE8E2 /* Pods_Movies_Pocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies_Pocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C2ADA85342EEB0DD4FEF15 /* Pods-Movies_Pocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movies_Pocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movies_Pocket/Pods-Movies_Pocket.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,15 +85,6 @@
 				87818C58FCF89E64A6196103 /* Pods-Movies_Pocket.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B34ADC461E7479B000D02CCF /* InterfaceUtils */ = {
-			isa = PBXGroup;
-			children = (
-				B34ADC441E7479A900D02CCF /* FavoriteButton.swift */,
-				B330EE321E7B426400B6061A /* LabelGenerator.swift */,
-			);
-			name = InterfaceUtils;
 			sourceTree = "<group>";
 		};
 		B3950B3D1E78907B00A0340C /* AboutViewController */ = {
@@ -127,13 +118,12 @@
 		B3A7C5261E67271700FCA51F /* Movies_Pocket */ = {
 			isa = PBXGroup;
 			children = (
-				B3ABD95F1E77029E005C9654 /* CoreDataClasses */,
-				B34ADC461E7479B000D02CCF /* InterfaceUtils */,
 				B3A7C5271E67271700FCA51F /* AppDelegate.swift */,
 				B3A7C54D1E6727E300FCA51F /* Storyboards */,
-				B3A7C54E1E67281F00FCA51F /* Helpers */,
-				B3A7C54C1E6727DB00FCA51F /* Controllers */,
 				B3A7C54B1E6727D400FCA51F /* Model */,
+				B3A7C54C1E6727DB00FCA51F /* Controllers */,
+				B3ABD95F1E77029E005C9654 /* CoreDataClasses */,
+				B3A7C54E1E67281F00FCA51F /* Utils */,
 				B3A7C52E1E67271700FCA51F /* m.xcassets */,
 				B3A7C5331E67271700FCA51F /* Info.plist */,
 				B3ABD95A1E76FDF9005C9654 /* CDModel.xcdatamodeld */,
@@ -153,11 +143,11 @@
 		B3A7C54C1E6727DB00FCA51F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3950B3D1E78907B00A0340C /* AboutViewController */,
 				B3A7C54F1E67286100FCA51F /* BaseControllers */,
 				B3A7C5401E67276F00FCA51F /* SearchViewController.swift */,
 				B3E8C95C1E6DBA8B00DCC31D /* DetailsViewController.swift */,
 				B3318EA91E7DBD0900CC2E39 /* CinemasViewController.swift */,
+				B3950B3D1E78907B00A0340C /* AboutViewController */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -171,13 +161,15 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		B3A7C54E1E67281F00FCA51F /* Helpers */ = {
+		B3A7C54E1E67281F00FCA51F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B330EE321E7B426400B6061A /* LabelGenerator.swift */,
+				B34ADC441E7479A900D02CCF /* FavoriteButton.swift */,
 				B3A7C5391E67276F00FCA51F /* APIHelper.swift */,
-				B3BF65511E6F2927008B06CC /* InterfaceHelper.swift */,
+				B3BF65511E6F2927008B06CC /* AlertHelper.swift */,
 			);
-			name = Helpers;
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		B3A7C54F1E67286100FCA51F /* BaseControllers */ = {
@@ -355,7 +347,7 @@
 				B3ABD9611E770348005C9654 /* CoreDataStack.swift in Sources */,
 				B3A7C5471E67276F00FCA51F /* Model.swift in Sources */,
 				B34ADC451E7479A900D02CCF /* FavoriteButton.swift in Sources */,
-				B3BF65521E6F2927008B06CC /* InterfaceHelper.swift in Sources */,
+				B3BF65521E6F2927008B06CC /* AlertHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
