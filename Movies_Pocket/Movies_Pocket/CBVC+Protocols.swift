@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate{
+extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, MediaCellDelegate{
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return  appDelegate!.model.foundItems.count
@@ -40,6 +40,9 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
                 break;
             }
         }
+        
+        cell.delegate = self
+        
         return cell
     }
     
@@ -88,60 +91,42 @@ extension CollectionBaseViewController: UICollectionViewDelegate, UICollectionVi
             segue.perform()
         }
     }
-}
-
-class MediaCell: UICollectionViewCell{
-    
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var overview: UILabel!
-    @IBOutlet weak var favoriteButton : FavoriteButton!
     
     //OPEN THE DETAILS VIEW CONTROLLER
-    @IBAction func showDetails(_ sender: UIButton) {
-        let cv = self.superview as! UICollectionView
-        let indexPath = cv.indexPath(for: self)
+    func mediaCellDelegateMoreButtonTap(cell: MediaCell){
+        let indexPath = collectionView.indexPath(for: cell)
         
-        let collectionViewController = cv.delegate as! CollectionBaseViewController
-        
-        let media = collectionViewController.appDelegate!.model.foundItems[indexPath!.row]
-        collectionViewController.appDelegate!.model.selectedMedia = media
+        let media = appDelegate!.model.foundItems[indexPath!.row]
+        appDelegate!.model.selectedMedia = media
         
         let loadingView: UIView
         let activityIndicator: UIActivityIndicatorView
         (loadingView,activityIndicator) = AlertHelper.createLoadingView()
         
-        collectionViewController.view.addSubview(loadingView)
+        self.view.addSubview(loadingView)
         activityIndicator.startAnimating()
         
         
         APIHelper.getDetails(media: media,
                              onCompletion: {
-                                    activityIndicator.stopAnimating()
-                                    loadingView.removeFromSuperview()
-                                    let controller = UIApplication.shared.keyWindow?.rootViewController;
-                                    controller?.performSegue(withIdentifier: "DetailSegue", sender: controller)
-                            },
+                                activityIndicator.stopAnimating()
+                                loadingView.removeFromSuperview()
+                                let controller = UIApplication.shared.keyWindow?.rootViewController;
+                                controller?.performSegue(withIdentifier: "DetailSegue", sender: controller)
+        },
                              onError: {
-                                    activityIndicator.stopAnimating()
-                                    loadingView.removeFromSuperview()
-                                    //Show error
-                                    let alert = AlertHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
-                                    collectionViewController.present(alert, animated: true, completion: nil)
+                                activityIndicator.stopAnimating()
+                                loadingView.removeFromSuperview()
+                                //Show error
+                                let alert = AlertHelper.createInfoAlert(title: "Error de conexión", text: "La conexión puede ser intermitente o el servidor no estar disponible.")
+                                self.present(alert, animated: true, completion: nil)
                                 
         })
-        
     }
-    
     //ADDS/REMOVES THE ITEM FROM NON-VOLATILE STORAGE
-    @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
-
-        let cv = self.superview as! UICollectionView
-        let indexPath = cv.indexPath(for: self)
-        
-        let collectionViewController = cv.delegate as! CollectionBaseViewController
-        
-        let media = collectionViewController.appDelegate!.model.foundItems[indexPath!.row]
+    func mediaCellDelegateFavoriteButtonTap(cell: MediaCell, sender: FavoriteButton){
+        let indexPath = collectionView.indexPath(for: cell)
+        let media = appDelegate!.model.foundItems[indexPath!.row]
         
         if sender.favorite {
             sender.setFavorite(state: false)
@@ -151,8 +136,29 @@ class MediaCell: UICollectionViewCell{
             sender.setFavorite(state: true)
             CoreDataHelper.saveMedia(media: media)
         }
-        
     }
+}
+
+class MediaCell: UICollectionViewCell{
+    
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var overview: UILabel!
+    @IBOutlet weak var favoriteButton : FavoriteButton!
+    
+    weak var delegate: MediaCellDelegate?
+    
+    @IBAction func showDetails(_ sender: UIButton) {
+        delegate?.mediaCellDelegateMoreButtonTap(cell:self)
+    }
+    
+    @IBAction func favoriteButtonAction(_ sender: FavoriteButton) {
+        delegate?.mediaCellDelegateFavoriteButtonTap(cell: self, sender: sender)
+     }
     
 }
 
+protocol MediaCellDelegate: class {
+    func mediaCellDelegateMoreButtonTap(cell: MediaCell)
+    func mediaCellDelegateFavoriteButtonTap(cell: MediaCell, sender: FavoriteButton)
+}
