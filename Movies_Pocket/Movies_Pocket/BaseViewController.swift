@@ -19,7 +19,6 @@ class BaseViewController: UIViewController {
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         gradient.frame = view.bounds
         gradient.colors = [UIColor.init(red: 0.5, green: 0, blue: 0.1, alpha: 0.2).cgColor, UIColor.init(red: 0.53, green: 0.06, blue: 0.27, alpha: 1.0).cgColor]
-        
     }
 
     override func didReceiveMemoryWarning() {

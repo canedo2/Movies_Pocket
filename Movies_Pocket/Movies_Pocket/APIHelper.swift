@@ -153,6 +153,42 @@ class APIHelper {
         
     }
     
+    //TODO: CREATE PROTOCOL
+    class func getTrailer(media: Media, controller: DetailsViewController){
+        let url = urlMovieDetails.appending("\(media.id)/videos?api_key=e8f58c65a7f1442fb4df99e10ae45604&language=es-ES");
+        
+        let session = URLSession(configuration: .default)
+        let urlRequest = URLRequest(url: URL(string: url)!)
+        
+        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else{
+                print ("Error in dataTask: getTrailer: \(error)")
+                return
+            }
+            guard let responseData = data else{
+                print("Error in dataTask: Did not recieve data")
+                return
+            }
+            guard let results = convertToJSON(data: responseData) else{
+                print("Error in dataTask: converToJSON")
+                return
+            }
+            DispatchQueue.main.async {
+               
+                if ((results["results"] as? [Any] ?? []).count == 0) {
+                    return
+                }
+                let result = (results["results"] as! [Any])[0] as! [String:Any]
+                if (result["site"] as! String).compare("YouTube") == ComparisonResult.orderedSame {
+                    controller.videoData = result
+                    controller.showVideo()
+                }
+            }
+        }
+        dataTask.resume()
+        
+    }
+    
     /* CONVERTS FROM DATA TO DICTIONARY*/
     class func convertToJSON(data:Data) -> [String:AnyObject]?{
         let result:[String:AnyObject]?
@@ -238,6 +274,8 @@ class APIHelper {
         }
         return items
     }
+    
+    
     
     
 }

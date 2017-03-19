@@ -19,6 +19,8 @@ class DetailsViewController: BaseViewController {
     @IBOutlet weak var ratingView: MBCircularProgressBarView!
     @IBOutlet weak var stackView: UIStackView!
     
+    lazy var videoData = [String:Any]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,11 @@ class DetailsViewController: BaseViewController {
                 break;
             }
         }
+        
+        if(media?.media_type == "movie"){
+            APIHelper.getTrailer(media: media!, controller: self)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,7 +101,7 @@ class DetailsViewController: BaseViewController {
         
         //DURATION
         let runtimeLabel: UILabel
-        print(media!.media_type)
+        
         if (media?.media_type == "movie"){
             let duration = media?.details["runtime"] as? Int ?? 0
             if( duration != 0){
@@ -215,5 +222,22 @@ class DetailsViewController: BaseViewController {
         }
         stackView.addArrangedSubview(moreInfoTextLabel)
     }
+    
+    func openYoutube(){
+        UIApplication.shared.open(URL(string:"https://www.youtube.com/watch?v=\(videoData["key"]!)")!, options: [:], completionHandler: nil)
+    }
+    
+    func showVideo(){
+        
+        let button = UIButton()
+    
+        button.setTitle("Ver trailer en YouTube", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setImage(UIImage(named: "youtube-icon"), for: .normal)
+        button.addTarget(self, action: #selector(self.openYoutube), for: UIControlEvents.touchUpInside)
+        
+        stackView.addArrangedSubview(button)
+    }
+    
     
 }

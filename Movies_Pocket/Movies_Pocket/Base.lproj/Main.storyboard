@@ -328,29 +328,29 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqG-Dq-9HE">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="227.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="227"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vy-dk-ebB">
-                                                        <rect key="frame" x="47.5" y="50" width="226" height="161.5"/>
+                                                        <rect key="frame" x="47" y="50" width="226" height="161"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-Qy-bH8">
-                                                                <rect key="frame" x="8" y="0.0" width="107.5" height="161.5"/>
+                                                                <rect key="frame" x="8" y="0.0" width="107.5" height="161"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="2lo-Qy-bH8" secondAttribute="height" multiplier="10:15" id="FoA-78-kbx"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WlT-L2-2E8">
-                                                                <rect key="frame" x="123.5" y="34" width="94.5" height="94.5"/>
+                                                                <rect key="frame" x="123.5" y="34" width="94.5" height="94"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Valoración: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhU-31-ULV">
-                                                                        <rect key="frame" x="-7.5" y="-10.5" width="109" height="21.5"/>
+                                                                        <rect key="frame" x="-7.5" y="-11" width="109" height="21.5"/>
                                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1022581336" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                                                         <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWv-Fn-p9T" customClass="MBCircularProgressBarView">
-                                                                        <rect key="frame" x="18.5" y="19" width="57.5" height="57"/>
+                                                                        <rect key="frame" x="19" y="18.5" width="56.5" height="57"/>
                                                                         <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="pWv-Fn-p9T" secondAttribute="height" multiplier="1:1" id="dcx-HY-rUv"/>
@@ -412,7 +412,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ONX-U4-XKB">
-                                                        <rect key="frame" x="8" y="220" width="304" height="0.0"/>
+                                                        <rect key="frame" x="8" y="219" width="304" height="0.0"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsu-fM-B7e" userLabel="PlaceHolder">
                                                                 <rect key="frame" x="0.0" y="0.0" width="304" height="0.0"/>
