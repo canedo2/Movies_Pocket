@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var model = Model()
     var window: UIWindow?
-    var storedFavoriteMedia = [MediaEntity]()
+    lazy var storedFavoriteMedia = [MediaEntity]()
     
     lazy var coreDataStack = CoreDataStack()
     

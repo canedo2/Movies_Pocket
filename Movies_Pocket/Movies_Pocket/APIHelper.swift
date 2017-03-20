@@ -20,7 +20,7 @@ class APIHelper {
     static let urlTVSeriesDetails = "https://api.themoviedb.org/3/tv/"
     
     /*GET /SEARCH REQUEST */
-    class func getSearch(page: Int, searchString: String, collectionView: UICollectionView?){
+    class func getSearch(page: Int, searchString: String, storageManager: APIHelperSearchDelegate){
         let url = urlSearch.appending("&query=\(searchString)&page=\(page)")
         
         let session = URLSession(configuration: .default)
@@ -40,9 +40,7 @@ class APIHelper {
             let items = convertToItemsArray(array: results! as! [[String:AnyObject]])
             let media = items as? [Media] ?? []
             DispatchQueue.main.async {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.model.foundItems = media
-                collectionView?.reloadData()
+                storageManager.setMediaSearch(mediaArray: media)
             }
         }
         dataTask.resume()

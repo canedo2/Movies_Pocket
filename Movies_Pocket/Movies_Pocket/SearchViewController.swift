@@ -96,7 +96,7 @@ class SearchViewController: CollectionBaseViewController, UISearchBarDelegate, A
         collectionView.reloadData()
         
         searchString = searchString.replacingOccurrences(of: " ", with: "+")
-        APIHelper.getSearch(page: 1, searchString: searchString, collectionView: collectionView)
+        APIHelper.getSearch(page: 1, searchString: searchString, storageManager: self)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
